@@ -38,7 +38,7 @@ Using logs as integration or/and as a form of persitant model, introduces new pa
 
 ### 1. 2PC
 
-A common challange when emiting changes/events is do drive the local state and publish the events in a "safe" manner. If the service updates local state first in one transaction then writes the events to a log or a broker in another transaction, you have to deal with two transaction. So you need a "two phased commit" - [two phased commit].(https://en.wikipedia.org/wiki/Two-phase_commit_protocol)
+A common challange when emiting changes/events is do drive the local state and publish the events in a "safe" manner. If the service updates local state first in one transaction then writes the events to a log or a broker in another transaction, you have to deal with two transaction. So you need a "two phased commit" - [two phased commit](https://en.wikipedia.org/wiki/Two-phase_commit_protocol)
 Not dealing with this could mean loosing data/events.
 
 
@@ -71,6 +71,7 @@ This have simularities with using logs to avoid dual writes as detailed in [kafk
 ![integration through log](assets/service_log_integration.png)
 
 This variant also has alot of tweak how we could respond to command from http requests. We could hide the async implementation or embrace it.
+
 
 ![response options](assets/response_options.png)
 
