@@ -35,6 +35,38 @@ Using logs as integration or/and as a form of persitant model, introduces new pa
 
 ![integration through log](assets/service_log_integration.png)
 
+
+### 1. 2PC
+
+A common challange when emiting changes/events is do drive the local state and publish the events in a "safe" manner. If the service updates local state first in one transaction then writes the events to a log or a broker in another transaction, you have to deal with two transaction. So you need a "two phased commit" - [two phased commit].(https://en.wikipedia.org/wiki/Two-phase_commit_protocol)
+Not dealing with this could mean loosing data/events.
+
+![Two phased commit](assets/2pc.png)
+
+When both transaction complete could could return 200 ok to clients.
+If this has business implications we would like to remove this complexety.
+
+
+### 2. Polling
+
+Another variant is to poll the source of events. This allows local state to be written, but the producing service doesn't publish the events. Instead the consumer polls based on time or offset. The consumer keeps track on the time or offset that is last polled the producer.
+This variant introduces coupling between producer and consumer, as well as potential global offset for the producer, and increased traffic.
+
+![Polling](assets/polling.png)
+
+### 3. Single publisher
+
+This variant has alot in common with polling. Here a publisher does the polling and then publihses the events. But due to that the publisher needs to keep track of the offset and publish the events, 2PC challanges comes back tough the implication is offen that the same event could be published twice.
+
+![function or lambda as polling publisher](assets/publisher.png)
+
+### 4. Log subscription
+
+
+### 5. The log is the database and the db is cache
+
+Idempotency and CRDT etc
+
 Dispatcher
 https://gist.github.com/yevhen/7682490
 8-lines of code
