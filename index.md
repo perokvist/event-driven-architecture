@@ -87,6 +87,13 @@ Responding to the client is one thing, but waht about multiple command targeting
 
 ### 5. The log is the database and the db is cache
 
+The final variant is to treat the log as our database. This could be done using infinite retention (Kafka only) or some form of snapshoting, preferably log compacation (kafka only).
+
+Then all other representations of the current state is views/projcations or cache of the current State
+
+----
+TODO
+
 Idempotency and CRDT etc
 
 Dispatcher
