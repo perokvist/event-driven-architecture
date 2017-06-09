@@ -105,8 +105,35 @@ If local state is persisted, how is an implementation detail. Keeping a stream o
 
 Outside of DDD, this could be refferd to as a journal or log. The terms journal, log and streams is occuring in both eventsourcing and stream processing (logs).
 
+<script src="https://gist.github.com/gregoryyoung/a3e69ed58ae066b91f1b" />
+
 ----
+
+## Implementation
+
+### Tactical patterns
+
+When practicing DDD, tacitacal patterns could be utilized in implementation in the solution space. (problem space / solution space).
+The patterns could be used in our service/component defention.
+
+![Service defentition](assets/service.png)
+
+In addition to the basic patterns, there are a few building blocks that could also aid us.
+
+| Name  | Formula |
+| ------------- | ------------- |
+| Application Service  | command -> unit  |
+| Application Service  | command -> event*  |
+| Enricher  | event -> event  |
+| Policy  | event -> event  |
+| Receptor  | event -> command  |
+
+
+
+
 TODO
+
+
 
 Dispatcher
 https://gist.github.com/yevhen/7682490
