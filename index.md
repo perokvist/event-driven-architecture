@@ -129,7 +129,11 @@ In addition to the basic patterns, there are a few building blocks that could al
 | Receptor  | event -> command  |
 
 
+
+
 ## Code
+
+### Command Dispatcher
 
 <script src="https://gist.github.com/gregoryyoung/7677671.js"></script>
 
