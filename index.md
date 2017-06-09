@@ -123,7 +123,7 @@ In addition to the basic patterns, there are a few building blocks that could al
 | Policy  | event -> event  |
 | Receptor  | event -> command  |
 
-Exaples as follows.
+Examples as follows.
 
 ## Code
 
