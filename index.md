@@ -123,13 +123,12 @@ In addition to the basic patterns, there are a few building blocks that could al
 | Policy  | event -> event  |
 | Receptor  | event -> command  |
 
-
-
+Exaples as follows.
 
 ## Code
 
 Commands and events are central in all exaples. In OO some registry for handlers could be handy. Commands have one target, events are broadcasted.
-In the *EventProcessor* we use locks as mention in variants above.
+In the *EventProcessor* we use locks as mentioned in the variants above.
 
 ### Command Dispatcher
 
