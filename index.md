@@ -129,6 +129,7 @@ In addition to the basic patterns, there are a few building blocks that could al
 ## Code
 
 Commands and events are central in all exaples. In OO some registry for handlers could be handy. Commands have one target, events are broadcasted.
+In the *EventProcessor* we use locks as mention in variants above.
 
 ### Command Dispatcher
 
