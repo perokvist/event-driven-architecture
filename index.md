@@ -105,7 +105,7 @@ If local state is persisted, how is an implementation detail. Keeping a stream o
 
 Outside of DDD, this could be refferd to as a journal or log. The terms journal, log and streams is occuring in both eventsourcing and stream processing (logs).
 
-<script src="https://gist.github.com/gregoryyoung/a3e69ed58ae066b91f1b" />
+<script src="https://gist.github.com/gregoryyoung/a3e69ed58ae066b91f1b"></script>
 
 ----
 
