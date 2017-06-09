@@ -128,7 +128,21 @@ In addition to the basic patterns, there are a few building blocks that could al
 
 ## Code
 
-[C# Code](code_csharp.html)
+Commands and events are central in all exaples. In OO some registry for handlers could be handy. Commands have one target, events are broadcasted.
+
+### Command Dispatcher
+
+#### C#
+
+<script src="https://gist.github.com/gregoryyoung/7677671.js"></script>
+
+<script src="https://gist.github.com/perokvist/2310c6f7a2bc2c16b86332903e369899.js"></script>
+
+### EventProcessor
+
+#### C#
+
+<script src="https://gist.github.com/perokvist/ef866f886df25d93ef7e9cca283456c0.js"></script>
 
 TODO
 
