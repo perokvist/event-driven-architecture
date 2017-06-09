@@ -97,6 +97,14 @@ Then all other representations of the current state is views/projcations or cach
 
 Due to that events are ["Event-based State Transfer"](https://martinfowler.com/videos.html#many-meanings-event) events, not [CRDT](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type) events and common infrastructure is at-least-once delivery. Idempotency on the consumer side becomes important as do order.
 
+Some of the variant above also pushes "problems" to the consumer side, like updating local state and manage checkpointing. The could also introduce 2PC, but in worse case handle the same event more than once.
+
+### Event sourcing
+
+If local state is persisted, how is an implementation detail. Keeping a stream of events per instance (aggregate) as the source of state is offen refered to as Event Sourcing. Offen tied to using Domain driven design (DDD). DDD is not required for the patterns above but might be a good fit, same same applies to event sourcing.
+
+Outside of DDD, this could be refferd to as a journal or log. The terms journal, log and streams is occuring in both eventsourcing and stream processing (logs).
+
 ----
 TODO
 
