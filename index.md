@@ -85,11 +85,13 @@ We could wait and return 200 ok when we have updated the local state. This also 
 #### Concurrency
 Responding to the client is one thing, but waht about multiple command targeting the same instance? This also is an implementation detail, if the use cases needs it, we could use locks. In the response scenario above we use the same locks to determine when we complete.
 
-### 5. The log is the database and the db is cache
+### 5. The truth is the log. The database is a cache
+
+A quote from Pat Helland's paper ["Immutability Changes Everything"](http://cidrdb.org/cidr2015/Papers/CIDR15_Paper16.pdf) and examplified in ex. ["From Microliths To Microsystems"](https://www.slideshare.net/jboner/from-microliths-to-microsystems)
 
 The final variant is to treat the log as our database. This could be done using infinite retention (Kafka only) or some form of snapshoting, preferably log compacation (kafka only).
 
-Then all other representations of the current state is views/projcations or cache of the current State
+Then all other representations of the current state is views/projcations or cache of the current state.
 
 #### Idempotency
 
