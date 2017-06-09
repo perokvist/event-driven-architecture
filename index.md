@@ -128,11 +128,7 @@ In addition to the basic patterns, there are a few building blocks that could al
 
 ## Code
 
-### Command Dispatcher
-
-<script src="https://gist.github.com/gregoryyoung/7677671.js"></script>
-
-<script src="https://gist.github.com/perokvist/2310c6f7a2bc2c16b86332903e369899.js"></script>
+[C# Code](code_csharp.html)
 
 TODO
 
