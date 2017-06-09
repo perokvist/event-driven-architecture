@@ -91,10 +91,12 @@ The final variant is to treat the log as our database. This could be done using 
 
 Then all other representations of the current state is views/projcations or cache of the current State
 
+#### Idempotency
+
+Due to that events are ["Event-based State Transfer"](https://martinfowler.com/videos.html#many-meanings-event) events, not [CRDT](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type) events and common infrastructure is at-least-once delivery. Idempotency on the consumer side becomes important as do order.
+
 ----
 TODO
-
-Idempotency and CRDT etc
 
 Dispatcher
 https://gist.github.com/yevhen/7682490
