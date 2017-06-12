@@ -123,6 +123,8 @@ Looking back at our service/component defenition and compare that to one case of
 In this scenario we see that consuming events producing new event are the same.
 This could be an [enricher](http://www.enterpriseintegrationpatterns.com/patterns/messaging/DataEnricher.html) scenario.
 
+Kafka being the log with the largest community and tooling around it, has some utils like [Kafka streams](https://balamaci.ro/kafka-streams-for-stream-processing/) making consuming events easier.
+
 ----
 
 ## Implementation
