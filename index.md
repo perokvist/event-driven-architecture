@@ -112,11 +112,11 @@ Outside of DDD, this could be refered to as a journal or log. The terms journal,
 
 ## Logs - bigger picture
 
-Using logs for intregation or backbone for your data platform has been describen in many different ways.  Fred George descriped it as, ["Rapids, Rivers and Ponds"](https://vimeo.com/79866979). When all events are published to the rapids, contexts or services could subscripe and filter events through rivers. Local state or storage of filtered events becomes local ponds.
+Using logs for integration or backbone for your data platform has been described in many different ways.  Fred George described it as, ["Rapids, Rivers and Ponds"](https://vimeo.com/79866979). When all events are published to the rapids, contexts or services could subscripe and filter events through rivers. Local state or storage of filtered events becomes local ponds.
 
 Event collaboration over different context trough a [backbone of events](https://www.confluent.io/blog/build-services-backbone-events/).
 
-Looking back at our service/component defenition and compare that to once case of stream processing, where we have a consumer reading from one stream and publishing result on "another"(possible the same) stream.
+Looking back at our service/component defenition and compare that to one case of stream processing, where we have a consumer reading from one stream and publishing result on "another"(possible the same) stream.
 
 ![stream processing - enricher](assets/enricher.png)
 
