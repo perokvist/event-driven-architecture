@@ -81,6 +81,9 @@ We could return 200 ok, when we have written to the logs.
 ### 4.3 
 We could wait and return 200 ok when we have updated the local state. This also gives us an option to return the result.
 
+### Concurrency
+Responding to the client is one thing, but what about multiple commands targeting the same instance? This also is an implementation detail, if the use cases need it, we could use locks. In the response scenario above we use the same locks to determine when we complete.
+
 ## 5. The truth is the log. The database is a cache
 
 A quote from Pat Helland's paper ["Immutability Changes Everything"](http://cidrdb.org/cidr2015/Papers/CIDR15_Paper16.pdf) and exemplified in ie. ["From Microliths To Microsystems"](https://www.slideshare.net/jboner/from-microliths-to-microsystems).
@@ -88,10 +91,6 @@ A quote from Pat Helland's paper ["Immutability Changes Everything"](http://cidr
 The final variant is to treat the log as our database. This could be done using infinite retention (Kafka only) or some form of snapshoting, preferably Log Compaction (Kafka only).
 
 Then all other representations of the current state are views/projections or cache of the current state.
-
-
-### Concurrency
-Responding to the client is one thing, but what about multiple commands targeting the same instance? This also is an implementation detail, if the use cases need it, we could use locks. In the response scenario above we use the same locks to determine when we complete.
 
 ### Idempotency
 
