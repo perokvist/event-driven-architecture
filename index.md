@@ -95,12 +95,27 @@ Due to the fact that events are ["Event-based State Transfer"](https://martinfow
 
 Some of the variants above also push "problems" to the consumer side, like updating local state and manage checkpointing. The could also introduce 2PC, but in worse case handle the same event more than once.
 
+### Scaling writes
+
+All scenarios above assumes that "local state" is on one node. When scaling so sets of instance state is located on different nodes, incomming traffic needs to be delegated to the node that owns the target state. The partitioning could then also be shared by the log, but doens't need to (if filtered).
+Some variant of 4.X would not be suitable when scaling writes.
+
 ## Event sourcing
 
 If local state is persisted, how is an implementation detail. Keeping a stream of events per instance (aggregate) as the source of state is often refered to as Event Sourcing. Often tied to using Domain driven design (DDD). DDD is not required for the patterns above but might be a good fit, same applies to event sourcing.
 
 <script src="https://gist.github.com/gregoryyoung/a3e69ed58ae066b91f1b.js"></script>
 Outside of DDD, this could be refered to as a journal or log. The terms journal, log and streams are found in both eventsourcing and stream processing (logs).
+
+## Logs - bigger picture
+
+Using logs for intregation or backbone for your data platform has been describen in many different ways.  Fred George descriped it as, ["Rapids, Rivers and Ponds"](https://vimeo.com/79866979). When all events are published to the rapids, contexts or services could subscripe and filter events through rivers. Local state or storage of filtered events becomes local ponds.
+
+Event collaboration over different context trough a [backbone of events](https://www.confluent.io/blog/build-services-backbone-events/).
+
+![stream processing - enricher](assets/enricher.png)
+
+[Enricher](http://www.enterpriseintegrationpatterns.com/patterns/messaging/DataEnricher.html)
 
 ----
 
@@ -109,7 +124,7 @@ Outside of DDD, this could be refered to as a journal or log. The terms journal,
 ### Tactical patterns
 
 When practicing DDD, tacitacal patterns could be utilized in implementation in the solution space. (problem space / solution space).
-The patterns could be used in our service/component defention.
+The patterns could be used in our service/component defenition.
 
 ![Service defentition](assets/service.png)
 
@@ -127,28 +142,19 @@ Examples as follows.
 
 ## Code
 
-Commands and events are central in all exaples. In OO some registry for handlers could be handy. Commands have one target, events are broadcasted.
+Commands and events are central in all examples. In OO some registry for handlers could be handy. Commands have one target, events are broadcasted.
 In the *EventProcessor* we use locks as mentioned in the variants above.
 
 ### Command Dispatcher
 
-#### C#
-
 <script src="https://gist.github.com/gregoryyoung/7677671.js"></script>
+[8 lines of code - video](https://www.infoq.com/presentations/8-lines-code-refactoring)
 
 <script src="https://gist.github.com/perokvist/2310c6f7a2bc2c16b86332903e369899.js"></script>
 
 ### EventProcessor
 
-#### C#
-
 <script src="https://gist.github.com/perokvist/ef866f886df25d93ef7e9cca283456c0.js"></script>
 
-TODO
 
-Dispatcher
-https://gist.github.com/yevhen/7682490
-8-lines of code
-Dispatcher
-https://gist.github.com/yevhen/7682490
-8-lines of code
+
