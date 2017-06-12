@@ -88,7 +88,7 @@ Responding to the client is one thing, but what about multiple commands targetin
 
 A quote from Pat Helland's paper ["Immutability Changes Everything"](http://cidrdb.org/cidr2015/Papers/CIDR15_Paper16.pdf) and exemplified in ie. ["From Microliths To Microsystems"](https://www.slideshare.net/jboner/from-microliths-to-microsystems).
 
-The final variant is to treat the log as our database. This could be done using infinite retention (Kafka only) or some form of snapshoting, preferably Log Compaction (Kafka only).
+The final variant is to treat the log as our database. This could be done using "infinite" retention (Kafka only) or some form of snapshoting, preferably [Log Compaction](https://www.linkedin.com/pulse/kafka-architecture-log-compaction-jean-paul-azar) (Kafka only).
 
 Then all other representations of the current state are views/projections or cache of the current state.
 
