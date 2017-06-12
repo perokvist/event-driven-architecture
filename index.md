@@ -11,7 +11,7 @@ Please give feedback and report issues on the [GitHub repository](https://github
 
 ## Introduction
 
-Follow-up for [Practial experiences with Microservices in the cloud](https://www.slideshare.net/Perkvist1/practical-experiences-with-microservices-in-the-cloud).
+Follow-up to [Practial experiences with Microservices in the cloud](https://www.slideshare.net/Perkvist1/practical-experiences-with-microservices-in-the-cloud).
 
 ---
 
@@ -69,20 +69,23 @@ This have similarities with using logs to avoid dual writes as detailed in [kafk
 
 ![integration through log](assets/service_log_integration.png)
 
-This variant also has a lot of tweak how we could respond to command from http requests. We could hide the async implementation or embrace it.
+This variant also has a lot of tweaks how we could respond to commands from http requests. We could hide the async implementation or embrace it.
 
 
 ![response options](assets/response_options.png)
 
 ### 4.1 
 We could expose our async implementation, by responding 204 when we receive the command.
+To guarantee processing, we need to persit (queue) the command, or send 204 after appending to the log.
+
 ### 4.2
-We could return 200 ok, when we have written to the logs.
+We could return 200 ok, when we have written to the log.
+
 ### 4.3 
 We could wait and return 200 ok when we have updated the local state. This also gives us an option to return the result.
 
 ### Concurrency
-Responding to the client is one thing, but what about multiple commands targeting the same instance? This also is an implementation detail, if the use cases need it, we could use locks. In the response scenario above we use the same locks to determine when we complete.
+Responding to the client is one thing, but what about multiple commands targeting the same instance? This also is an implementation detail, if the use case needs it, we could use locks. In the response scenario(4.3) above we use the same lock to determine when we complete.
 
 ## 5. The truth is the log. The database is a cache
 
@@ -96,7 +99,7 @@ Then all other representations of the current state are views/projections or cac
 
 Due to the fact that events are ["Event-based State Transfer"](https://martinfowler.com/videos.html#many-meanings-event) events, not [CRDT](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type) events and common infrastructure is at-least-once delivery, idempotency on the consumer side becomes important as do order.
 
-Some of the variants above also push "problems" to the consumer side, like updating local state and manage checkpointing. The could also introduce 2PC, but in worse case handle the same event more than once.
+Some of the variants above also push "problems" to the consumer side, like updating local state and manage checkpointing. This could also introduce 2PC, but in worse case, handle/recive the same event more than once.
 
 ### Scaling writes
 
@@ -158,7 +161,6 @@ In the *EventProcessor* we use locks as mentioned in the variants above.
 <script src="https://gist.github.com/gregoryyoung/7677671.js"></script>
 [8 lines of code - video](https://www.infoq.com/presentations/8-lines-code-refactoring)
 <script src="https://gist.github.com/perokvist/2310c6f7a2bc2c16b86332903e369899.js"></script>
-
 ### EventProcessor
 
 <script src="https://gist.github.com/perokvist/ef866f886df25d93ef7e9cca283456c0.js"></script>
