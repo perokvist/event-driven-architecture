@@ -149,7 +149,6 @@ In the *EventProcessor* we use locks as mentioned in the variants above.
 
 <script src="https://gist.github.com/gregoryyoung/7677671.js"></script>
 [8 lines of code - video](https://www.infoq.com/presentations/8-lines-code-refactoring)
-
 <script src="https://gist.github.com/perokvist/2310c6f7a2bc2c16b86332903e369899.js"></script>
 
 ### EventProcessor
