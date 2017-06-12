@@ -116,9 +116,11 @@ Using logs for intregation or backbone for your data platform has been describen
 
 Event collaboration over different context trough a [backbone of events](https://www.confluent.io/blog/build-services-backbone-events/).
 
-![stream processing - enricher](assets/enricher.png)
+Looking back at our service/component defenition and compare that to once case of stream processing, where we have a consumer reading from one stream and publishing result on "another"(possible the same) stream.
 
-[Enricher](http://www.enterpriseintegrationpatterns.com/patterns/messaging/DataEnricher.html)
+![stream processing - enricher](assets/enricher.png)
+In this scenario we see that consuming events producing new event are the same.
+This could be a [enricher](http://www.enterpriseintegrationpatterns.com/patterns/messaging/DataEnricher.html) scenario.
 
 ----
 
