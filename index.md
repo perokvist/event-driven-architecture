@@ -10,6 +10,9 @@ By Per Ökvist ([@per_okvist](https://twitter.com/per_okvist/))<br/>
 Please give feedback and report issues on the [GitHub repository](https://github.com/perokvist/event-driven-architecture/).
 
 ## Introduction
+
+Follow-up for this conference [session].(https://www.slideshare.net/Perkvist1/practical-experiences-with-microservices-in-the-cloud)
+
 ---
 
 In this article we'll explore EDA mainly through "Event-based State Transfer", see [Martin Fowler's event patterns](https://martinfowler.com/videos.html#many-meanings-event).
