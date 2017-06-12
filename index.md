@@ -11,7 +11,7 @@ Please give feedback and report issues on the [GitHub repository](https://github
 
 ## Introduction
 
-Follow-up for this conference [session].(https://www.slideshare.net/Perkvist1/practical-experiences-with-microservices-in-the-cloud)
+Follow-up for this conference [session](https://www.slideshare.net/Perkvist1/practical-experiences-with-microservices-in-the-cloud).
 
 ---
 
