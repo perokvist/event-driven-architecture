@@ -128,6 +128,15 @@ This could be an [enricher](http://www.enterpriseintegrationpatterns.com/pattern
 
 Kafka being the log with the largest community and tooling around it, has some utils like [Kafka streams](https://balamaci.ro/kafka-streams-for-stream-processing/) making consuming events easier.
 
+### Integration through logs
+
+One other way of integration with logs, is to publish chanes from a database as events. Turning the database insideout. This enables supscription of change though CRUD events. And example of this is - [Bottled Water: Real-time integration of PostgreSQL and Kafka](https://www.confluent.io/blog/bottled-water-real-time-integration-of-postgresql-and-kafka/)
+
+This could inspire a variant when an ORM publishes changes (possible 2PC).
+![publishing changes through db or orm](assets/db_integration.png)
+
+Some drawbacks of this integration style is, schema leakage, missing intent and pushing some business rules to consumers.
+
 ----
 
 ## Modelling
@@ -136,7 +145,10 @@ When collaborating through the use of events, events become the starting point f
 
 This will also aid you in finding the bouderies for service/components (context) (out of scope of this article).
 
-It one thing to start fresh, but learning your domain is constant learning, finding the best feedback loops. When iterating over your contexts, things will change and version our events comes in plan - [Versioning in an Event Sourced System](https://leanpub.com/esversioning), [(video) the elephant in the room](https://skillsmatter.com/skillscasts/9652-the-elephant-in-the-room)
+It one thing to start fresh, but learning your domain is constant learning, finding the best feedback loops. When iterating over your contexts, things will change and version our events comes in plan - [Versioning in an Event Sourced System](https://leanpub.com/esversioning), [(video) the elephant in the room](https://skillsmatter.com/skillscasts/9652-the-elephant-in-the-room).
+
+Modelling - [Top domain model](https://blog.scooletz.com/tag/top-domain-model/)
+
 
 ## Implementation
 
@@ -176,5 +188,10 @@ In the *EventProcessor* we use locks as mentioned in the variants above.
 ### Application service
 When dispaching commands to application services, an util could come i handy to support some of the variants above. This could be used in Application services for your use cases or in simple scenarios directly in the "dispatcher".
 <script src="https://gist.github.com/perokvist/409f474559f44657e8d2cdf19a53b94d.js"></script>
+
+### Test
+If state is based one events, test could become; Given (past events), When (action/command) - Then (events), see [event driven verification](https://abdullin.com/sku-vault/event-driven-verification/)
+
+
 
 
