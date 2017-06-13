@@ -16,7 +16,7 @@ Follow-up to [Practial experiences with Microservices in the cloud](https://www.
 ---
 
 In this article we'll explore EDA mainly through "Event-based State Transfer", see [Martin Fowler's event patterns](https://martinfowler.com/videos.html#many-meanings-event).
-In the examples services and compontents will collaborate through events. The service and component definitions we're using are as follows.
+In the examples services and compontents will collaborate through events. The service and component definition we're using is as follows.
 
 ## Service / Component
 
@@ -63,7 +63,7 @@ This variant has a lot in common with polling. Here a publisher does the polling
 
 ## 4. Log subscription
 
-In this variant we only write to the log, and then reads the log to update local state. This way we only have one transaction when writing to the logs.
+In this variant we only write to the log, and then read the log to update local state. This way we only have one transaction when writing to the log.
 This have similarities with using logs to avoid dual writes as detailed in [kafka dual writes](https://www.confluent.io/blog/using-logs-to-build-a-solid-data-infrastructure-or-why-dual-writes-are-a-bad-idea/).
 
 
@@ -79,7 +79,7 @@ We could expose our async implementation, by responding 204 when we receive the 
 To guarantee processing, we need to persit (queue) the command, or send 204 after appending to the log.
 
 ### 4.2
-We could return 200 ok, when we have written to the log.
+We could return 200 ok (or 204), when we have written to the log.
 
 ### 4.3 
 We could wait and return 200 ok when we have updated the local state. This also gives us an option to return the result.
@@ -135,7 +135,7 @@ Kafka being the log with the largest community and tooling around it, has some u
 ### Tactical patterns
 
 When practicing DDD, tacitacal patterns could be utilized in implementation in the solution space. (problem space / solution space).
-The patterns could be used in our service/component defenition.
+These patterns could be used in our service/component defenition.
 
 ![Service defentition](assets/service.png)
 
@@ -153,7 +153,7 @@ Examples as follows.
 
 ## Code
 
-Commands and events are central in all examples. In OO some registry for handlers could be handy. Commands have one target, events are broadcasted.
+Commands and events are central in all examples. In OO some registry for handlers could be handy (or pattern matching available). Commands have one target, events are broadcasted.
 In the *EventProcessor* we use locks as mentioned in the variants above.
 
 ### Command Dispatcher
@@ -164,6 +164,10 @@ In the *EventProcessor* we use locks as mentioned in the variants above.
 ### EventProcessor
 
 <script src="https://gist.github.com/perokvist/ef866f886df25d93ef7e9cca283456c0.js"></script>
+### Application service
 
+When dispaching commands to application services, an util could come i handy to support some of the variants above. This could be used in Application services for your use cases or in simple scenarios directly in the "dispatcher".
+
+<script src="https://gist.github.com/perokvist/409f474559f44657e8d2cdf19a53b94d.js"></script>
 
 
