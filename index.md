@@ -130,6 +130,14 @@ Kafka being the log with the largest community and tooling around it, has some u
 
 ----
 
+## Modelling
+
+When collaborating through the use of events, events become the starting point for discussion and modelling. [Event storming](http://eventstorming.com/) is a way of driving your design form events, in a non techinical manner.
+
+This will also aid you in finding the bouderies for service/components (context) (out of scope of this article).
+
+It one thing to start fresh, but learning your domain is constant learning, finding the best feedback loops. When iterating over your contexts, things will change and version our events comes in plan - [Versioning in an Event Sourced System](https://leanpub.com/esversioning), [(video) the elephant in the room](https://skillsmatter.com/skillscasts/9652-the-elephant-in-the-room)
+
 ## Implementation
 
 ### Tactical patterns
