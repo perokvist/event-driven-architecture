@@ -164,10 +164,9 @@ In the *EventProcessor* we use locks as mentioned in the variants above.
 ### EventProcessor
 
 <script src="https://gist.github.com/perokvist/ef866f886df25d93ef7e9cca283456c0.js"></script>
+
 ### Application service
-
 When dispaching commands to application services, an util could come i handy to support some of the variants above. This could be used in Application services for your use cases or in simple scenarios directly in the "dispatcher".
-
 <script src="https://gist.github.com/perokvist/409f474559f44657e8d2cdf19a53b94d.js"></script>
 
 
