@@ -11,17 +11,17 @@ Please give feedback and report issues on the [GitHub repository](https://github
 
 This is a follow-up to the talk [Practical experiences with microservices in the cloud](https://www.slideshare.net/Perkvist1/practical-experiences-with-microservices-in-the-cloud) I held at the Micro CPH 2017.
 
-In this article we'll explore Event Driven Architecture (EDA) mainly through "Event-based State Transfer", see [Martin Fowler's event patterns](https://martinfowler.com/videos.html#many-meanings-event). In the examples services and compontents will collaborate through events. ``? Are Services and Components treated as synonyms? Choose one? ?`` The service and component definition we're using is as follows.
+In this article we'll explore Event Driven Architecture (EDA) mainly through "Event-based State Transfer", see [Martin Fowler's event patterns](https://martinfowler.com/videos.html#many-meanings-event). In the examples services and compontents will collaborate through events. The service and component definition we're using is as follows.
 ## Service / Component
 
 Each service can react to / emit events, and handle request/response.
-Requests can be commands or queries. Responses can be only status codes or results, the request/response could by synchronous or asynchronous, eventual consistent or not. ``? What about events? Asynchronous and eventual consisten by nature? ?`` While the service definition stays the same, all these options are implementation details.
+Requests can be commands or queries. Responses can be only status codes or results, the request/response could by synchronous or asynchronous, eventual consistent or not. While the service definition stays the same, all these options are implementation details.
 
 [Source of inspiration](http://media.abdullin.com/blog/2015/2015-03-18-edd-eBay-Barcelona.pdf#page=23)
 
 ![Service definition](assets/service.png)
 
-## ``? Unified? ?`` Logs
+## Logs
 
 This article will also look at integration between services using logs.
 
@@ -93,14 +93,13 @@ Some of the variants above also push "problems" to the consumer side, like updat
 
 ### Scaling writes
 
-All scenarios above assume that "local state" is on one node. When scaling in a way that sets of instance state are located on different nodes, incoming traffic needs to be delegated to the node that owns the target state. The partitioning could then also be shared by the log, but doesn't need to (if filtered). Some variant of 4.X would not be suitable when scaling writes. ``? Which and why ?``
+All scenarios above assume that "local state" is on one node. When scaling in a way that sets of instance state are located on different nodes, incoming traffic needs to be delegated to the node that owns the target state. The partitioning could then also be shared by the log, but doesn't need to (if filtered). Some variant of 4.X would not be suitable when scaling writes.
 
 ## Event sourcing
 
 If local state is persisted, how is an implementation detail. Keeping a stream of events per instance (aggregate) as the source of state is often refered to as Event Sourcing. Often tied to using Domain Driven Design (DDD). DDD is not required for the patterns above but might be a good fit, same applies to event sourcing.
 
 <script src="https://gist.github.com/gregoryyoung/a3e69ed58ae066b91f1b.js"></script> 
-``? Not clear how this gist belongs to the text ?``
 
 Outside of DDD, this stream of events could be refered to as a journal or log. The terms journal, log and streams are found in both event sourcing and stream processing (logs).
 
