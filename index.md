@@ -137,9 +137,10 @@ It's one thing to start fresh, but learning your domain is constant learning, fi
 
 Modelling - [Top domain model](https://blog.scooletz.com/tag/top-domain-model/)
 
-[Implementation](implementation.html)
-
 ---
+
+Some details about [implementation](implementation.html).
+
 
 ### Thanks
 Thanks to; [Kristoffer Jälén](https://github.com/kristofferjalen), [Daniel Wallin](https://github.com/dawallin), [Marcus Widblom](https://github.com/f00), [Niklas Rothman](https://github.com/nironixon) for the feedback. 

@@ -30,6 +30,8 @@ Commands and events are central in all examples. In OO some registry for handler
 
 ### EventProcessor
 
+To broadcast events. Some consumer that don't need the lock, might want to another way of broadcating or handling IO than Task.WhenAll.
+
 <script src="https://gist.github.com/perokvist/ef866f886df25d93ef7e9cca283456c0.js"></script>
 
 ### Application service
