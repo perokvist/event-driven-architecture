@@ -143,4 +143,4 @@ Some details about [implementation](implementation.html).
 
 
 ### Thanks
-Thanks to; [Kristoffer Jälén](https://github.com/kristofferjalen), [Daniel Wallin](https://github.com/dawallin), [Marcus Widblom](https://github.com/f00), [Niklas Rothman](https://github.com/nironixon) for the feedback. 
+Thanks to; [Niklas Rothman](https://github.com/nironixon),  [Kristoffer Jälén](https://github.com/kristofferjalen), [Daniel Wallin](https://github.com/dawallin), [Marcus Widblom](https://github.com/f00), for the feedback. 
