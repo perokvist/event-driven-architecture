@@ -137,6 +137,17 @@ It's one thing to start fresh, but learning your domain is constant learning, fi
 
 Modelling - [Top domain model](https://blog.scooletz.com/tag/top-domain-model/)
 
+### Log vs Database
+
+Some databases offer subscription of changes, like [EventStore](https://geteventstore.com/). This achieves the goal of a single transaction, due to writing to the stream is the only transaction. Subscribers then retrive changes through a subscription model of given streams. The streams in the eventstore is both the persistance and the queue in this case, tying integration to the "database".
+In this scenario read side (projections) could read the same stream as the write side, making changing events a bit easier.  
+
+The are other stores offering similar solutions.
+
+This scenario ties all services to the persitance of events (the database), and possible tooling for subscription is often tied to appication code. See [Greg Young - Polyglot Data](https://www.youtube.com/watch?v=GbM1ghLeweU)
+
+This kind of subscription model could also be used to create a single publisher (method three).
+
 ---
 
 Some details about [implementation](implementation.html).
