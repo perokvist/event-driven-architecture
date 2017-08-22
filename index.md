@@ -25,7 +25,7 @@ Each service could then follow the, Given, When, then approach.
 
 ## Logs
 
-This article will also look at integration between services using logs.
+This article will also focus on integration between services using logs.
 
 ![Log infrastructure options](assets/logs.png)
 

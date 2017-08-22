@@ -48,7 +48,7 @@ See [event driven verification](https://abdullin.com/sku-vault/event-driven-veri
 
 ### Service/Component/Module -  Given, When, Then
 
-Our scenario of focus is a service that owns state, with possible constraints implemented to protect its state from illigal invariants.
+Our scenario of focus is a service that owns state, with possible constraints implemented to protect its state from illegal invariants.
 
 Consumers that only own projection(s) of these events, does not have the same complexety.
 
@@ -69,8 +69,10 @@ This gives us quite alot of implementation options.
 
 The publisher could either write/publish events to a log or/and an eventstore stream. Consumers could then get events trough the log, eventstore or service api.
 
+##### Log
 When the consumers gets events through the log, integration is done via the log and no other coupling is introduced (besides infrastructure and schema).
 
+##### Other alternatives
 The producer could also expose its events through ex Atom feed, the consumer would then pull changes from the producer. This would introduce coupling between the services, but ease implementation code wise.
 
 The consumer could also get published events from the event stream from its store, tying integration to the "database".
@@ -99,19 +101,19 @@ When creating components in aspnetcoremvc 2.0 that either subsrcibes to a log, s
 
 #### Azure EventGrid
 
-[EventGrid](https://blog.tomkerkhove.be/2017/08/22/exploring-azure-event-grid/) is a event delivery and routing service. Using EventGrid introdues a new service that becomes the integration point. EventGrid pushes Events to functions, logic app or to web hooks. The grid is Topic based and offers at-least-once delivery but retry and perstance time is 24h.
+[EventGrid](https://blog.tomkerkhove.be/2017/08/22/exploring-azure-event-grid/) is a event delivery and routing service. Using EventGrid introduces a new service that becomes the integration point. EventGrid pushes Events to functions, logic apps or to web hooks. The grid is Topic based and offers at-least-once delivery but retry and perstance time is 24h.
 
-An app could publish event to eventgrid through http, or builtin in hooks from event publishers like from Event hubs could be used.
+An app could publish event to eventgrid through http, or built-in in hooks from event publishers like from Event hubs could be used.
 
 This gives us alot of options, events could be written to a log, but routed to web hooks, for easier apis for consumers.
 
-Two services could integrate only trough eventgrid, a possibility to even only use eventgrid to get on transaction is possible where the producing service pushes event to the grid and also is a web hook consumer.
+Two services could integrate only trough eventgrid, a possibility to even only use eventgrid to get one transaction is possible where the producing service pushes events to the grid and also is a web hook consumer (that would release the lock).
 
 #### Serverless 
 
 Many of these scenarios is about a service/compontent that is both a producer and a consumer, that want a single transaction before events are in some way persisted. Locks enables the api to know when the events are persisted in a log stream or when it's also retrived and persisted in the compontent eventstore.
 
-If you have another scenario where you poll or in otherway subscribe to events thats already persisted or just a service wiht projections, you don't need to share a locks reference in the same process. Then serverless independent functions for publisher and consumers could be use with ease.
+If you have another scenario where you poll or in otherway subscribe to events thats already persisted or just a service with projections, you don't need to share a locks reference in the same process. Then serverless independent functions for publisher and consumers could be used with ease.
 If a function is for an interaction (command) you still have to choose a concurrecy option.
 
 
