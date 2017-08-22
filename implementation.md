@@ -45,3 +45,67 @@ If state is based on events, test could be like:
 - Then (events)
 
 See [event driven verification](https://abdullin.com/sku-vault/event-driven-verification/).
+
+### Given, When, Then
+
+In the examples above *When* is handled by the dispatcher, *Then* (event returned by the aggregate) is handled by the EventProcessor (in many cases).
+
+Our goal is to write events in one transaction, and use aggragetes to scope and aid concurrency.
+
+This gives us quite alot of implementation options.
+
+We use locks in the example to illustrate how *when* could be used through an api. When the service is both a producer and a consumer (handels both *when* and *then*) it needs to share the same lock reference. This way an aggregate only handles one command at a time with the latest state.
+
+### Actors
+
+Actors is used for the same concurrency guarantee, incoming commands are queued (inbox) per actor instance. Using actors you still face the same challanges in writing (and publishing) state/events to its persistance (and log) in a transactional way.
+
+Service fabric offer an actor model out of the box and does also support Orleans and other Actor frameworks.
+
+### Service fabric
+Service fabric let you work with an instance queue and its state in a single transaction (with replication support) and loadbalancer with partion support.
+
+So even if you don't use actors service fabric has a lot of features that suite our scenarios. 
+But if you not only use its persitance model, some of the challages in this article still apply.
+
+#### Push vs Pull
+
+The publisher could either write/publish events to a log or/and an eventstore stream. Consumers could then get events trough the log, eventstore or service api.
+
+When the consumers gets events through the log, integration is done via the log and no other coupling is introduced (besides infrastructure and schema).
+
+The producer could also expose its events through ex Atom, the consumer would then pull changes from the producer. This would introduce coupling between the services.
+
+The consumer could also get published events from the event stream from its store, tying integration to the "database".
+
+Databases like [Eventstore](https://geteventstore.com/blog/20130306/getting-started-part-3-subscriptions/) or [CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/change-feed) offers subscriptions to changes. These could also be used to create a single publisher.
+
+#### Tests
+
+When creating a service/component it could aid test to ease the use of setup to use given, when, then apis. 
+
+#### AspNetCore 2.0
+
+When creating components in aspnetcoremvc 2.0 that either subsrcibes to a log, stream subscription or polls a feed [IHostedService](https://www.stevejgordon.co.uk/asp-net-core-2-ihostedservice) provides hosting an http api an creating background work with the same lifetime as the api host. 
+
+#### Azure EventGrid
+
+[EventGrid](https://blog.tomkerkhove.be/2017/08/22/exploring-azure-event-grid/) is a event delivery and routing service. Using EventGrid introdues a new service that becomes the integration point. EventGrid pushes Events to functions, logic app or to web hooks. The grid is Topic based and offers at-least-once delivery but retry and perstance time is 24h.
+
+An app could publish event to eventgrid through http, or build in hooks from event publishers like from Event hubs could be used.
+
+This gives alot of options, event could be written to a log, but routed to web hooks, for easier apis for consumers.
+
+Two services could integrate only trough eventgrid, a possibility to even only use eventgrid to get on transaction is possible where the producing service pushes event to the grid and also is a web hook consumer.
+
+#### Serverless 
+
+Many of these scenarios is about a service/compontent that is both a producer and a consumer, that want a single transaction before events are in some way persisted. Locks enables the api to know when the events are persisted in a log stream or when it's also retrived and persisted in the compontent eventstore.
+
+If you have another scenario where you poll or in otherway subscribe to events thats already persisted, you don't need to share a locks reference in the same process. Then serverless independent functions for publisher and consumers could be use with ease.
+If a function is for an interaction (command) you still have to choose a concurrecy option.
+
+
+
+
+
