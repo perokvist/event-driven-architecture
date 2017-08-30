@@ -79,6 +79,8 @@ The consumer could also get published events from the event stream from its stor
 
 Databases like [Eventstore](https://geteventstore.com/blog/20130306/getting-started-part-3-subscriptions/) or [CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/change-feed) offers subscriptions to changes. These could also be used to create a single publisher.
 
+It's still the consumers reponibility to keeptrack of what position it sould read from. EventStore has this notion (catchup subscription) In ComsmosDB the [partion key range](https://docs.microsoft.com/en-us/azure/cosmos-db/change-feed) could be used.
+
 #### Tests
 
 When creating a service/component it could aid tests to ease the use of setup to use given, when, then apis. 
@@ -95,11 +97,11 @@ Service fabric let you work with an instance queue and its state in a single tra
 So even if you don't use actors service fabric has a lot of features that suite our scenarios. 
 But if you not only use its persitance model, some of the challages in this article still apply.
 
-#### AspNetCore 2.0
+#### AspNetCore 2.0 (Pull)
 
 When creating components in aspnetcoremvc 2.0 that either subsrcibes to a log, stream subscription or polls a feed [IHostedService](https://www.stevejgordon.co.uk/asp-net-core-2-ihostedservice) provides hosting an http api an creating background work with the same lifetime as the api host. 
 
-#### Azure EventGrid
+#### Azure EventGrid (Push)
 
 [EventGrid](https://blog.tomkerkhove.be/2017/08/22/exploring-azure-event-grid/) is a event delivery and routing service. Using EventGrid introduces a new service that becomes the integration point. EventGrid pushes Events to functions, logic apps or to web hooks. The grid is Topic based and offers at-least-once delivery but retry and perstance time is 24h.
 
