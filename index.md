@@ -65,14 +65,14 @@ This have similarities with using logs to avoid dual writes as detailed in [Kafk
 This variant also has a lot of tweaks how we could respond to commands from http requests. We could hide the async implementation or embrace it.
 
 ### 4.1 
-We could expose our async implementation by responding 204 when we receive the command.
-To guarantee processing, we need to persist (enqueue) the command, or send 204 after appending to the log.
+We could expose our async implementation by responding 204 No Content when we receive the command.
+To guarantee processing, we need to persist (enqueue) the command, or send 204 No Content after appending to the log.
 
 ### 4.2
-We could return 200 ok (or 204), when we have written to the log.
+We could return 200 OK (or 204 No Content), when we have written to the log.
 
 ### 4.3 
-We could wait and return 200 ok when we have updated the local state. This also gives us an option to return the result.
+We could wait and return 200 OK when we have updated the local state. This also gives us an option to return the result.
 
 ![response options](assets/response_options.png)
 
@@ -97,7 +97,7 @@ All scenarios above assume that "local state" is on one node. When scaling in a 
 
 ## Event sourcing
 
-If local state is persisted, how is an implementation detail. Keeping a stream of events per instance (aggregate) as the source of state is often refered to as Event Sourcing. Often tied to using Domain Driven Design (DDD). DDD is not required for the patterns above but might be a good fit, same applies to event sourcing.
+If local state is persisted, *how* is an implementation detail. Keeping a stream of events per instance (aggregate) as the source of state is often refered to as Event Sourcing. Often tied to using Domain Driven Design (DDD). DDD is not required for the patterns above but might be a good fit, same applies to event sourcing.
 
 <script src="https://gist.github.com/gregoryyoung/a3e69ed58ae066b91f1b.js"></script> 
 
@@ -119,7 +119,7 @@ Kafka being the log with the largest community and tooling around it, has some u
 
 ### Integration through logs
 
-One other way of integration with logs, is to publish changes from a database as events, turning the database inside out. This enables supscription of change though CRUD events. An example of this is [Bottled Water: Real-time integration of PostgreSQL and Kafka](https://www.confluent.io/blog/bottled-water-real-time-integration-of-postgresql-and-kafka/).
+One other way of integration with logs, is to publish changes from a database as events, turning the database inside out. This enables subscription of change through CRUD events. An example of this is [Bottled Water: Real-time integration of PostgreSQL and Kafka](https://www.confluent.io/blog/bottled-water-real-time-integration-of-postgresql-and-kafka/).
 
 This could inspire a variant when an ORM publishes changes (possible 2PC).
 
