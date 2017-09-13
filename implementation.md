@@ -118,7 +118,36 @@ Many of these scenarios is about a service/compontent that is both a producer an
 If you have another scenario where you poll or in otherway subscribe to events thats already persisted or just a service with projections, you don't need to share a locks reference in the same process. Then serverless independent functions for publisher and consumers could be used with ease.
 If a function is for an interaction (command) you still have to choose a concurrecy option.
 
+### Method one - 2PC
 
+Some persitance infrastrucutre and brokers are capable to share transaction scope to handle/hide the 2PC.
 
+### Method two - polling
 
+A consumer could have backround task polling the producer in a given time interval.
+The *IHostedService* in aspnetcore 2.0 could be useful for such an implementation.
+Offset needs to be persisted by the consumer, *Service fabric*'s could be used to pull event to the local queue, the pop the the queue and due state changes in a shared transaction.
 
+In a serverless scenario the task of polling could be it's own function/process.
+
+### Method three - single publisher 
+
+In some cases polling and single publisher have alot in common. But the polling in this case is done one the producers side. One single task polls for changes and publishes them on a log or broker.
+
+Some infrastructure might give you a subscription that could ease the implementation of the single publisher. Both eventstore and CosmosDB has features the could be used.
+
+The *IHostedService* in aspnetcore 2.0 could be useful for such an implementations.
+
+In a serverless scenario the single publsiher could be it's own function/process. 
+
+### Method four - log subscription
+
+The consumer uses the log infrastructure apis to subscripe/poll the log. Offset tracking etc is useally handled by the log client apis. The subscription could run as a separate task using aspnetcore 2.0's *IHostedService* for ex.
+
+In a serverless scenarion, depending on your concurrency choices, the subscription could also be is own function/process.
+
+Azure *Event grid* might be introduces, so the log subscription of is handled by the event grid, that then pushes events to the consumer using a web hook for ex. Switching the consumer from pull to push.
+
+### Method five - The log is the truth
+
+Is this scenario, it's still a log subscriotion, but with other retention or compation settings. So separating initializing and catch up are implementation details. All log subscription implementations is applicable.

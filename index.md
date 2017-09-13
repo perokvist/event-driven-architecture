@@ -87,6 +87,8 @@ This is a quote from Pat Helland's paper ["Immutability Changes Everything"](htt
 
 The final variant is to treat the log as our database. This could be done using "infinite" retention (Kafka only) or some form of snapshoting, preferably [Log Compaction](https://www.linkedin.com/pulse/kafka-architecture-log-compaction-jean-paul-azar) (Kafka only). Then all other representations of the current state are views/projections or cache of the current state.
 
+[Messaging as the Single Source of Truth](https://www.confluent.io/blog/messaging-single-source-truth/)
+
 ### Idempotency
 
 Due to the fact that events are ["Event-based State Transfer"](https://martinfowler.com/videos.html#many-meanings-event) events, not [Conflict-free replicated data type (CRDT)](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type) events and common infrastructure is at-least-once delivery, idempotency on the consumer side becomes important as do order.
