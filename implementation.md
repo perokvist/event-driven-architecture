@@ -111,6 +111,8 @@ This gives us alot of options, events could be written to a log, but routed to w
 
 Two services could integrate only trough eventgrid, a possibility to even only use eventgrid to get one transaction is possible where the producing service pushes events to the grid and also is a web hook consumer (that would release the lock).
 
+**But** Event grid is different, it dispatches it's event in paralell, to use auto scaling of the target service(s). This way we loose ordering guarantees. Publishing state events through event grid might not be a good option, until we could configure the level of paralleism and guarantee ordering. The [Event grid](https://azure.microsoft.com/sv-se/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/) target other usecases, more suitable for notification events.
+
 #### Serverless 
 
 Many of these scenarios is about a service/compontent that is both a producer and a consumer, that want a single transaction before events are in some way persisted. Locks enables the api to know when the events are persisted in a log stream or when it's also retrived and persisted in the compontent eventstore.
@@ -146,8 +148,12 @@ The consumer uses the log infrastructure apis to subscripe/poll the log. Offset 
 
 In a serverless scenarion, depending on your concurrency choices, the subscription could also be is own function/process.
 
-Azure *Event grid* might be introduces, so the log subscription of is handled by the event grid, that then pushes events to the consumer using a web hook for ex. Switching the consumer from pull to push.
+Azure *Event grid* might be introduced, so the log subscription of is handled by the event grid, that then pushes events to the consumer using a web hook for ex. Switching the consumer from pull to push. (But due another focus/fature set evenet grid not be suitable for publishing state transer events).
 
 ### Method five - The log is the truth
 
 Is this scenario, it's still a log subscriotion, but with other retention or compation settings. So separating initializing and catch up are implementation details. All log subscription implementations is applicable.
+
+Kafka offers both log compaction and configurable retention. Giving the consumer the same api for "restore"/replay and subscribing.
+
+Event hubs, has two api's due to it solve this problem with [Event hubs captuture](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview), storing batches of events in avro format in configrable storage options.

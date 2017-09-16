@@ -87,7 +87,11 @@ This is a quote from Pat Helland's paper ["Immutability Changes Everything"](htt
 
 The final variant is to treat the log as our database. This could be done using "infinite" retention (Kafka only) or some form of snapshoting, preferably [Log Compaction](https://www.linkedin.com/pulse/kafka-architecture-log-compaction-jean-paul-azar) (Kafka only). Then all other representations of the current state are views/projections or cache of the current state.
 
-[Messaging as the Single Source of Truth](https://www.confluent.io/blog/messaging-single-source-truth/)
+* [Messaging as the Single Source of Truth](https://www.confluent.io/blog/messaging-single-source-truth/)
+
+* [Publishing with Apache Kafka at The New York Times](https://www.confluent.io/blog/publishing-apache-kafka-new-york-times/)
+
+* [It’s Okay To Store Data In Apache Kafka](https://www.confluent.io/blog/okay-store-data-apache-kafka/)
 
 ### Idempotency
 
@@ -156,7 +160,11 @@ Modelling - [Top domain model](https://blog.scooletz.com/tag/top-domain-model/)
 
 ---
 
-Some details about [implementation](implementation.html).
+## Implementation
+
+#### .NET (C#/F#)
+
+Some details about azure/.NET [implementation](implementation.html).
 
 
 ### Thanks
