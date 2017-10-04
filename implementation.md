@@ -54,6 +54,8 @@ Consumers that only own projection(s) of these events, does not have the same co
 
 In the examples above *When* is handled by the dispatcher, *Then* (event returned by the aggregate) is handled by the EventProcessor (in many cases).
 
+![integration through log](assets/service_log_integration.png)
+
 Our goal is to write events in "one" transaction (to all consumers), and use aggragetes to scope and aid concurrency.
 
 We use locks in the example to illustrate how *when* could be used through an api. When the service is both a producer and a consumer (changes state protected by constraints - handels both *when* and *then*) it needs to share the same lock reference. This way an aggregate only handles one command at a time with the latest state.
