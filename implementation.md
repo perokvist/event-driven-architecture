@@ -81,7 +81,7 @@ The consumer could also get published events from the event stream from its stor
 
 Databases like [Eventstore](https://geteventstore.com/blog/20130306/getting-started-part-3-subscriptions/) or [CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/change-feed) offers subscriptions for changes. These could also be used to create a single publisher.
 
-It's still the consumers reponibility to keep track of what position it sould read from. EventStore has this notion (catchup subscription) In CosmosDB the [partion key range](https://docs.microsoft.com/en-us/azure/cosmos-db/change-feed) could be used.
+It's still the consumers responibility to keep track of what position it should read from. EventStore has this notion (catchup subscription) In CosmosDB the [partion key range](https://docs.microsoft.com/en-us/azure/cosmos-db/change-feed) could be used.
  
 
 ##### Actors
@@ -91,7 +91,7 @@ Actors is used for concurrency guarantee (and scaling), incoming commands are qu
 Service fabric offers an actor model out of the box and does also support Orleans and other Actor frameworks.
 
 ##### Service fabric
-Service fabric let you work with an instance queue and its state in a single transaction (with replication support) and loadbalancer with partion support.
+Service fabric let you work with an instance queue and its state in a single transaction (with replication support) and loadbalancer with partition support.
 
 So even if you don't use actors service fabric has a lot of features that suite our scenarios. 
 But if you don't use its persitance model, some of the challages in this article still apply.
