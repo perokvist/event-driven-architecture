@@ -63,6 +63,8 @@ We use locks in the example to illustrate how *when* could be used through an ap
 The producer is also a consumer due to that we want to write our events (in this case to the log) in one transaction, so all consumers (including the producer) recieves the events.
 The producer recieves the events at the "same time" as consumers. In our example locks are used to aid both concurrency and options for the api to respond.
 
+![response options](assets/response_options.png)
+
 This gives us quite alot of implementation options.
 
 When creating a service/component it could aid tests to ease the use of setup to use given, when, then apis.
