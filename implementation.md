@@ -156,4 +156,4 @@ Is this scenario, it's still a log subscriotion, but with other retention or com
 
 Kafka offers both log compaction and configurable retention. Giving the consumer the same api for "restore"/replay and subscribing.
 
-Event hubs, has two api's due to it solve this problem with [Event hubs captuture](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview), storing batches of events in avro format in configrable storage options.
+Event hubs, has two api's due to it solve this problem with [Event hubs capture](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview), storing batches of events in avro format in configrable storage options.

@@ -155,8 +155,10 @@ This will also aid you in finding the boundaries for service/components (context
 
 It's one thing to start fresh, but learning your domain is constant learning, finding the best feedback loops. When iterating over your contexts, things will change and versioning our events comes in plan, see [Versioning in an Event Sourced System](https://leanpub.com/esversioning) and [The elephant in the room](https://skillsmatter.com/skillscasts/9652-the-elephant-in-the-room) (video).
 
-Modelling - [Top domain model](https://blog.scooletz.com/tag/top-domain-model/)
+ 
 
+- [Top domain model](https://blog.scooletz.com/tag/top-domain-model/)
+- [Domain Modeling Made Functional](https://www.youtube.com/watch?v=Up7LcbGZFuo)
 
 ---
 
@@ -164,7 +166,7 @@ Modelling - [Top domain model](https://blog.scooletz.com/tag/top-domain-model/)
 
 #### .NET (C#/F#)
 
-Some details about azure/.NET [implementation](implementation.html).
+Details about azure/.NET [implementation](implementation.html).
 
 
 ### Thanks
