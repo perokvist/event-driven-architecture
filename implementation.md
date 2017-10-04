@@ -137,6 +137,8 @@ Offset needs to be persisted by the consumer (and given by the producer), *Servi
 
 In a serverless scenario the task of polling could be it's own function/process.
 
+![Polling](assets/polling.png)
+
 ### Method three - single publisher 
 
 In some cases polling and single publisher have alot in common. But the polling in this case is tied to the producer. One single task polls for changes and publishes them on a log or broker.
@@ -146,6 +148,8 @@ Some infrastructure might give you a subscription that could ease the implementa
 The *IHostedService* in aspnetcore 2.0 could be useful for such an implementation.
 
 In a serverless scenario the single publisher could be it's own function/process. 
+
+![function or lambda as polling publisher](assets/publisher.png)
 
 ### Method four - log subscription
 
