@@ -63,9 +63,11 @@ The producer recieves the events at the "same time" as consumers. In our example
 
 This gives us quite alot of implementation options.
 
-#### Options
+When creating a service/component it could aid tests to ease the use of setup to use given, when, then apis.
 
-#### Push vs Pull
+### Options
+
+##### Push vs Pull
 
 The publisher could either write/publish events to a log or/and an eventstore stream. Consumers could then get events trough the log, eventstore or service api.
 
@@ -77,13 +79,10 @@ The producer could also expose its events through ex Atom feed, the consumer wou
 
 The consumer could also get published events from the event stream from its store, tying integration to the "database".
 
-Databases like [Eventstore](https://geteventstore.com/blog/20130306/getting-started-part-3-subscriptions/) or [CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/change-feed) offers subscriptions to changes. These could also be used to create a single publisher.
+Databases like [Eventstore](https://geteventstore.com/blog/20130306/getting-started-part-3-subscriptions/) or [CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/change-feed) offers subscriptions for changes. These could also be used to create a single publisher.
 
-It's still the consumers reponibility to keeptrack of what position it sould read from. EventStore has this notion (catchup subscription) In ComsmosDB the [partion key range](https://docs.microsoft.com/en-us/azure/cosmos-db/change-feed) could be used.
-
-#### Tests
-
-When creating a service/component it could aid tests to ease the use of setup to use given, when, then apis. 
+It's still the consumers reponibility to keep track of what position it sould read from. EventStore has this notion (catchup subscription) In CosmosDB the [partion key range](https://docs.microsoft.com/en-us/azure/cosmos-db/change-feed) could be used.
+ 
 
 ##### Actors
 
@@ -95,13 +94,13 @@ Service fabric offers an actor model out of the box and does also support Orlean
 Service fabric let you work with an instance queue and its state in a single transaction (with replication support) and loadbalancer with partion support.
 
 So even if you don't use actors service fabric has a lot of features that suite our scenarios. 
-But if you not only use its persitance model, some of the challages in this article still apply.
+But if you don't use its persitance model, some of the challages in this article still apply.
 
-#### AspNetCore 2.0 (Pull)
+##### AspNetCore 2.0 (Pull)
 
 When creating components in aspnetcoremvc 2.0 that either subsrcibes to a log, stream subscription or polls a feed [IHostedService](https://www.stevejgordon.co.uk/asp-net-core-2-ihostedservice) provides hosting an http api an creating background work with the same lifetime as the api host. 
 
-#### Azure EventGrid (Push)
+##### Azure EventGrid (Push)
 
 [EventGrid](https://blog.tomkerkhove.be/2017/08/22/exploring-azure-event-grid/) is a event delivery and routing service. Using EventGrid introduces a new service that becomes the integration point. EventGrid pushes Events to functions, logic apps or to web hooks. The grid is Topic based and offers at-least-once delivery but retry and perstance time is 24h.
 
@@ -120,6 +119,8 @@ Many of these scenarios is about a service/compontent that is both a producer an
 If you have another scenario where you poll or in otherway subscribe to events thats already persisted or just a service with projections, you don't need to share a locks reference in the same process. Then serverless independent functions for publisher and consumers could be used with ease.
 If a function is for an interaction (command) you still have to choose a concurrecy option.
 
+Creating a serverless function per aggregate has challanges. Concurrency, store and publishing of events.
+
 ### Method one - 2PC
 
 Some persitance infrastrucutre and brokers are capable to share transaction scope to handle/hide the 2PC.
@@ -128,31 +129,31 @@ Some persitance infrastrucutre and brokers are capable to share transaction scop
 
 A consumer could have backround task polling the producer in a given time interval.
 The *IHostedService* in aspnetcore 2.0 could be useful for such an implementation.
-Offset needs to be persisted by the consumer, *Service fabric*'s could be used to pull event to the local queue, the pop the the queue and due state changes in a shared transaction.
+Offset needs to be persisted by the consumer (and given by the producer), *Service fabric*'s could be used to pull events to the local queue, the pop the the queue and due state changes in a shared transaction.
 
 In a serverless scenario the task of polling could be it's own function/process.
 
 ### Method three - single publisher 
 
-In some cases polling and single publisher have alot in common. But the polling in this case is done one the producers side. One single task polls for changes and publishes them on a log or broker.
+In some cases polling and single publisher have alot in common. But the polling in this case is tied to the producer. One single task polls for changes and publishes them on a log or broker.
 
 Some infrastructure might give you a subscription that could ease the implementation of the single publisher. Both eventstore and CosmosDB has features the could be used.
 
-The *IHostedService* in aspnetcore 2.0 could be useful for such an implementations.
+The *IHostedService* in aspnetcore 2.0 could be useful for such an implementation.
 
-In a serverless scenario the single publsiher could be it's own function/process. 
+In a serverless scenario the single publisher could be it's own function/process. 
 
 ### Method four - log subscription
 
 The consumer uses the log infrastructure apis to subscripe/poll the log. Offset tracking etc is useally handled by the log client apis. The subscription could run as a separate task using aspnetcore 2.0's *IHostedService* for ex.
 
-In a serverless scenarion, depending on your concurrency choices, the subscription could also be is own function/process.
+In a serverless scenarios, depending on your concurrency choices, the subscription could also be is own function/process.
 
-Azure *Event grid* might be introduced, so the log subscription of is handled by the event grid, that then pushes events to the consumer using a web hook for ex. Switching the consumer from pull to push. (But due another focus/fature set evenet grid not be suitable for publishing state transer events).
+Azure *Event grid* might be introduced, so the log subscription is handled by the event grid, that then pushes events to the consumer using a web hook for ex. Switching the consumer from pull to push. (But due another focus/feature set event grid is not be suitable for publishing state transer events).
 
 ### Method five - The log is the truth
 
-Is this scenario, it's still a log subscriotion, but with other retention or compation settings. So separating initializing and catch up are implementation details. All log subscription implementations is applicable.
+Is this scenario, it's still a log subscription, but with other retention or compation settings. So separating initializing and catch up are implementation details. All log subscription implementations is applicable.
 
 Kafka offers both log compaction and configurable retention. Giving the consumer the same api for "restore"/replay and subscribing.
 
