@@ -21,9 +21,11 @@ Requests can be commands or queries. Responses can be only status codes or resul
 
 ![Service definition](assets/service.png)
 
+Each service could then follow the, Given, When, then approach.
+
 ## Logs
 
-This article will also look at integration between services using logs.
+This article will also focus on integration between services using logs.
 
 ![Log infrastructure options](assets/logs.png)
 
@@ -85,6 +87,12 @@ This is a quote from Pat Helland's paper ["Immutability Changes Everything"](htt
 
 The final variant is to treat the log as our database. This could be done using "infinite" retention (Kafka only) or some form of snapshoting, preferably [Log Compaction](https://www.linkedin.com/pulse/kafka-architecture-log-compaction-jean-paul-azar) (Kafka only). Then all other representations of the current state are views/projections or cache of the current state.
 
+* [Messaging as the Single Source of Truth](https://www.confluent.io/blog/messaging-single-source-truth/)
+
+* [Publishing with Apache Kafka at The New York Times](https://www.confluent.io/blog/publishing-apache-kafka-new-york-times/)
+
+* [It’s Okay To Store Data In Apache Kafka](https://www.confluent.io/blog/okay-store-data-apache-kafka/)
+
 ### Idempotency
 
 Due to the fact that events are ["Event-based State Transfer"](https://martinfowler.com/videos.html#many-meanings-event) events, not [Conflict-free replicated data type (CRDT)](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type) events and common infrastructure is at-least-once delivery, idempotency on the consumer side becomes important as do order.
@@ -126,17 +134,7 @@ This could inspire a variant when an ORM publishes changes (possible 2PC).
 ![publishing changes through db or orm](assets/db_integration.png)
 
 Some drawbacks of this integration style are schema leakage, missing intent and pushing some business rules to consumers.
-
-## Modelling
-
-When collaborating through the use of events, events become the starting point for discussion and modelling. [Event storming](http://eventstorming.com/) is a way of driving your design from events in a non techinical manner.
-
-This will also aid you in finding the boundaries for service/components (context) (out of scope of this article).
-
-It's one thing to start fresh, but learning your domain is constant learning, finding the best feedback loops. When iterating over your contexts, things will change and versioning our events comes in plan, see [Versioning in an Event Sourced System](https://leanpub.com/esversioning) and [The elephant in the room](https://skillsmatter.com/skillscasts/9652-the-elephant-in-the-room) (video).
-
-Modelling - [Top domain model](https://blog.scooletz.com/tag/top-domain-model/)
-
+ 
 ### Log vs Database
 
 Some databases offer subscription of changes, like [EventStore](https://geteventstore.com/). This achieves the goal of a single transaction, due to writing to the stream is the only transaction. Subscribers then retrive changes through a subscription model of given streams. The streams in the eventstore is both the persistance and the queue in this case, tying integration to the "database".
@@ -148,9 +146,27 @@ This scenario ties all services to the persitance of events (the database), and 
 
 This kind of subscription model could also be used to create a single publisher (method three).
 
+
+## Modelling
+
+When collaborating through the use of events, events become the starting point for discussion and modelling. [Event storming](http://eventstorming.com/) is a way of driving your design from events in a non techinical manner.
+
+This will also aid you in finding the boundaries for service/components (context) (out of scope of this article).
+
+It's one thing to start fresh, but learning your domain is constant learning, finding the best feedback loops. When iterating over your contexts, things will change and versioning our events comes in plan, see [Versioning in an Event Sourced System](https://leanpub.com/esversioning) and [The elephant in the room](https://skillsmatter.com/skillscasts/9652-the-elephant-in-the-room) (video).
+
+ 
+
+- [Top domain model](https://blog.scooletz.com/tag/top-domain-model/)
+- [Domain Modeling Made Functional](https://www.youtube.com/watch?v=Up7LcbGZFuo)
+
 ---
 
-Some details about [implementation](implementation.html).
+## Implementation
+
+#### .NET (C#/F#)
+
+Details about azure/.NET [implementation](implementation.html).
 
 
 ### Thanks
