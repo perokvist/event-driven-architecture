@@ -16,8 +16,8 @@ Each vertical could then use an architecture and tech stack suitable for it's ne
 
 ## Composition
 
-To aid reasoning about composition, let establish a few building block to help. Pages and fragments.
-Pages are owned a produced by the team owning a vertical. Building block for sharing a part/component is called a fragment.
+To aid reasoning about composition, let establish a few building blocks to help. Pages and fragments.
+Pages are owned and produced by the team owning a vertical. The building block for sharing a part/component is called a fragment.
 “Teams should publish a catalog of their fragment types and fragment instances”.
 
 ![Pages & Fragments](assets/pages_fragments.png)
@@ -30,16 +30,16 @@ The result of transclusion is a single integrated document made of parts assembl
 
 ### Options
 
-The web provider a few established options to integrate different systems.
+The web provides a few established options to integrate different systems.
 
 ![Internet integration](assets/internet_integration.png)
 
 Iframe is a good "sandboxing" technique, but the frame part is challenging.
-Links most is commonly used, and a great option if possible. Http Api's is what might lead us to a monolithic front end, a backing option for fragments but not the main part for integration.
+Links is commonly used, and are great option if possible. Http Api's is what might lead us to a monolithic front end, a backing option for fragments but not the main part for integration.
 Markup is great, but we need help with transclusion.
 Our mental model could be compared to a frameless iframe with pre-rendered markup.
 
-If composition and what composition strategy to be used depends on what kind of system you're building.
+If composition, and if, what composition strategy to be used depends on what kind of system you're building.
 When researching options, you'll find three main options
 
 - Zalando's Tailor
@@ -71,18 +71,18 @@ But a fragment may contain both markup, styling and scripts.
 - your_fragment_scripts.html
 - your_fragment.html
 
-This make a fragment of three parts [^1] all to me includes through esi:include in the suitable places on a page.
+This make a fragment of three parts [^1] all to be included through esi:include in the suitable places on a page.
 
 [^1: ]Note that all parts are .html. Giving the producer ability to control tags and cache-busting.
 
-To make fragments "stand alone" components, there are some rules. There can be described as tranclusion's [context neutrality](https://en.wikipedia.org/wiki/Transclusion#Context_neutrality).
+To make fragments "stand alone" components, there are some rules. They can be described as tranclusion's [context neutrality](https://en.wikipedia.org/wiki/Transclusion#Context_neutrality).
 A fragment should have no dependency on the page it's included on, nor any other fragment.
 It doesn't have the "sandbox" of the iframe, making all runtime dependencies or global declarations a dependency that is not allowed. This means that the only allowed runtime is the default one - the browsers implementation of ECMA script - [vanillajs](http://vanilla-js.com/).
 It's tempting to argee on a common runtime for all, but this introduces instability, release trains and removes the self-contained, agility, localized decisions of each team/vertical.
 
 The same temptation might occur regarding styling. A [style guide](https://en.wikipedia.org/wiki/Style_guide) is the best way of approaching a common ground without removing the pros of being self-contained, agility, localized decision of each team/vertical.
 
-The options on page level is not the same, pages are not shared and own by a vertical/team. All dependencies on page level are local.
+The options on page level is not the same, pages are not shared and owned by a vertical/team. All dependencies on page level are local.
 
 ### h-include
 
@@ -98,13 +98,13 @@ Due to its similarity to ESI it a perfect match for combining.
 
 With support for both SSI and CSI with a similar approach, you could do quite powerful optimization and choices for your solution.
 
-To be able to defer loading, "go through caching" with CSI, optimize below the fold etc. you stepped up your mix and match game. All with great caching abilities, optimizing for relevant and change rate of content.
+To be able to defer loading, "go through caching" with CSI, optimize below the fold etc. you stepped up your mix and match game. All with great caching abilities, optimizing for relevance and change rate of content.
 
 ### Performance budgets
 
 Performance is UX. When working in verticals consuming other vertical/teams fragments, doing so within your page expectations might be crucial.
 
-Introducing performance budgets for mission critical verticals is good to keep good performance. This also show the costs for resources, using scripts, parsing javascript etc. This is often an eye opener for time to action, especially on mobile devices.
+Introducing performance budgets for mission critical verticals is good to keep good performance. This also show the costs for resources, using scripts, parsing javascript etc. This is often an eye opener for time to action, especially for mobile devices.
 
 [Start Performance Budgeting](https://addyosmani.com/blog/performance-budgets/)
 
