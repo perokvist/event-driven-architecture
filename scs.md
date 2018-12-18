@@ -117,3 +117,4 @@ Keeping content as just content, rendered by the server could aid you in creatin
 
 ### Caching
 
+With a caching layer like a CDN in place, honoring the underlaying verticals cache header, with ESI support composition is done near the client. But when dealing with static content resource like rendered mark up, it could compare to static files. So if we reverse the pull model of the CDN, that refreshes the resource when the cache time is expired we could push content to the CDN. This would enable the CDN to have a infintie cache time, and new content to be pushed when changed.
