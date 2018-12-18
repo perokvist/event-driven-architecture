@@ -59,7 +59,7 @@ Behavior might also be best to do as [progressive enhancement](https://en.wikipe
 The simplest for of ESI looks like this.
 
 ```
-<esi:include src="xxxx"></esi:include>
+<esi:include src="xxxx.html"></esi:include>
 ```
 
 A CDN or middleware with ESI capability will parse and include the document referenced. This is done server side. This also honors the cache header of the source, adding great caching capablities and composition close to the client!
@@ -90,3 +90,29 @@ ESI is for server side inclusion (SSI). To include pre-redered content on the cl
 
 Due to its similarity to ESI it a perfect match for combining.
 
+```
+<h-include src="xxxx.html"></h-include>
+```
+
+## Sum of the parts
+
+With support for both SSI and CSI with a similar approch, you could do quite powerfull optimization and choices for your solution.
+
+To be able to deffer loading, "go through caching" with CSI, optimize below the fold etc you stepped up your mix and match game. All with great caching abillites, optimizing for relevant and change rate of content.
+
+### Performance budgets
+
+Performace is UX. When working in verticals consuming other vertical/teams fragments, doing so within your page expectations might be crusual.
+
+Introducing performace budgets for mission critical veticals is good to keep good performance. This also show the costs for resources, using scripts, parsing javascript etc. This is often an eye opener for time to action, especially on mobile devices.
+
+[Start Performance Budgeting](https://addyosmani.com/blog/performance-budgets/)
+
+### SEO
+
+Keeping content as just content, rendered by the server could aid you in creating a better SEO strategy.
+
+- [Javascript SEO](https://www.elephate.com/blog/ultimate-guide-javascript-seo/)
+- [The cost of javascript](https://medium.com/@addyosmani/the-cost-of-javascript-in-2018-7d8950fbb5d4)
+
+### Caching
