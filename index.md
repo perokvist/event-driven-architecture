@@ -9,7 +9,7 @@ Please give feedback and report issues on the [GitHub repository](https://github
 
 ## Introduction
 
-Collection of articles and session follow-ups regarding EDA.
+Collection of articles and session follow-ups related to EDA.
 
 ## Index
 
