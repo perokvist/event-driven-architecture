@@ -4,7 +4,7 @@ layout: default
 
 ## Introduction
 
-[Self contained systems](scs-architecutre.org) - SCS is a decomposition style, where a set of verticals forms a system. Each vertical being a independent self contained system.
+[Self contained systems](https://scs-architecture.org/) - SCS is a decomposition style, where a set of verticals forms a system. Each vertical being an independent self contained system.
 “Each SCS must include data and logic. To really implement any meaningful features both are needed. An SCS should implement features by itself and must therefore include both.”
 SCS favors UI integration trough composition, where each vertical owns all interfaces/UI, aligning service and UI ownership. 
 SCS itself doesn’t imply which composition style to use.
@@ -42,9 +42,9 @@ Our mental model could be compared to a frameless iframe with pre-rendered marku
 If composition, and if, what composition strategy to be used depends on what kind of system you're building.
 When researching options, you'll find three main options
 
-- Zalando's Tailor
-- Akamai's ESI (edge side include)
-- Custom, Web Components/JS, JS lib components
+- Zalando's [Tailor](https://github.com/zalando/tailor)
+- Akamai's [ESI](https://www.akamai.com/uk/en/support/esi.jsp) (edge side include)
+- Custom, [Web Components](https://www.webcomponents.org/)/JS, JS lib components
 
 This article will focus on transclusion using [ESI](https://www.akamai.com/uk/en/support/esi.jsp). 
 
@@ -118,3 +118,4 @@ Keeping content as just content, rendered by the server could aid you in creatin
 ### Caching
 
 With a caching layer like a CDN in place, honoring the underlaying verticals cache header, with ESI support composition is done near the client. But when dealing with static content resource like rendered mark up, it could compare to static files. So if we reverse the pull model of the CDN, that refreshes the resource when the cache time is expired we could push content to the CDN. This would enable the CDN to have a infintie cache time, and new content to be pushed when changed.
+
