@@ -106,7 +106,8 @@ Performance is UX. When working in verticals consuming other vertical/teams frag
 
 Introducing performance budgets for mission critical verticals is good to keep good performance. This also show the costs for resources, using scripts, parsing javascript etc. This is often an eye opener for time to action, especially for mobile devices.
 
-[Start Performance Budgeting](https://addyosmani.com/blog/performance-budgets/)
+- [Start Performance Budgeting](https://addyosmani.com/blog/performance-budgets/)
+- [The cost of javascript](https://medium.com/@addyosmani/the-cost-of-javascript-in-2018-7d8950fbb5d4)
 
 ### SEO
 
