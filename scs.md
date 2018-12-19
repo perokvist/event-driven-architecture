@@ -43,7 +43,7 @@ If composition, and if, what composition strategy to be used depends on what kin
 When researching options, you'll find three main options
 
 - Zalando's [Tailor](https://github.com/zalando/tailor)
-- Akamai's [ESI](https://www.akamai.com/uk/en/support/esi.jsp) (edge side include)
+- [ESI](https://www.akamai.com/uk/en/support/esi.jsp) (edge side include), used by CDNs such as [Akamai](https://www.akamai.com) and [Varnish](https://varnish-cache.org/) based providers like [Fastly](https://fastly.com).
 - Custom, [Web Components](https://www.webcomponents.org/)/JS, JS lib components
 
 This article will focus on transclusion using [ESI](https://www.akamai.com/uk/en/support/esi.jsp). 

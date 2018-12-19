@@ -14,14 +14,14 @@ Collection of articles and session follow-ups regarding EDA.
 ## Index
 
 - Self contained systems
-    * [Article](scs.html)
-    * [Slides](https://www.slideshare.net/Perkvist1/self-contained-systems-in-practice)
+    * [Article - SCS & Composition](scs.html)
+    * [Slides - Self contained systems - In Practice](https://www.slideshare.net/Perkvist1/self-contained-systems-in-practice)
 - Eventdriven servies through logs 
-    * [Article](logs.html)
+    * [Article - event driven / event integration](logs.html)
     * [Implementation](implementation.html)
-    * [Slides](https://www.slideshare.net/Perkvist1/practical-experiences-with-microservices-in-the-cloud)
+    * [Slides - Microservices - in Practice](https://www.slideshare.net/Perkvist1/practical-experiences-with-microservices-in-the-cloud)
 - Github
-    * [Fiffi](https://github.com/perokvist/Fiffi/tree/dev)
-    * [Rock paper scissors](https://github.com/perokvist/rock-paper-scissors-fsharp)
+    * [Fiffi - Exploration kit for EDA](https://github.com/perokvist/Fiffi/tree/dev)
+    * [Rock paper scissors - ES sample](https://github.com/perokvist/rock-paper-scissors-fsharp)
 
 
