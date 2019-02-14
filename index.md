@@ -13,6 +13,8 @@ Collection of articles and session follow-ups related to EDA.
 
 ## Index
 
+- Bounded contexts
+    * [Article - Context to Context communication](integration.html)
 - Self contained systems
     * [Article - SCS & Composition](scs.html)
     * [Slides - Self contained systems - In Practice](https://www.slideshare.net/Perkvist1/self-contained-systems-in-practice)
@@ -21,7 +23,7 @@ Collection of articles and session follow-ups related to EDA.
     * [Implementation](implementation.html)
     * [Slides - Microservices - in Practice](https://www.slideshare.net/Perkvist1/practical-experiences-with-microservices-in-the-cloud)
 - Github
-    * [Fiffi - Exploration kit for EDA](https://github.com/perokvist/Fiffi/tree/dev)
+    * [Fiffi - Exploration kit for EDA](https://github.com/perokvist/Fiffi/)
     * [Rock paper scissors - ES sample](https://github.com/perokvist/rock-paper-scissors-fsharp)
 
 
