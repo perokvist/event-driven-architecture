@@ -9,6 +9,8 @@ It easy to assume that if Context A is using events to drive it internal state, 
 
 ![Context to context communication](assets/context_to_context.png)
 
+## Mailboxes
+
 *Here we call side effects/state transfer events just statevents, and the public event of our domain domain events.*
 
 A change in context A is triggered and event(s) created. After writing them to a local stream (ES), they are put in an outbox, in the same transaction. The outbox is then check to see if there is something we want to share with the world, a domain event. If so it's published, if not it's move to the inbox. Both the outbox and inbox are persisted queues owned by the context. The inbox is then read to dipatch events within the context. If a change is of value to rest of the world, a domain event might be crated by some ACL then but in the outbox and dispatched out from the context.
