@@ -15,6 +15,12 @@ A change in context A is triggered and event(s) created. After writing them to a
 
 The consuming context puts messages of interest in it's inbox, from there they will be dispached. On it's way it might be transformed by an ACL to fit the context. This depends on the kind of relationship between the contexts.
 
+---
+
+**Note** The example above does't imply usage of DTC. Just some for of implemention of the outbox pattern.
+
+---
+
 ### Resources
 
 * [Domain events vs event sourcing](https://www.innoq.com/en/blog/domain-events-versus-event-sourcing/)
