@@ -9,15 +9,21 @@ It easy to assume that if Context A is using events to drive it internal state, 
 
 ![Context to context communication](assets/context_to_context.png)
 
-*Here we call side effects/state transfer events just statevents, and the public event of our domain domain events.*
+*Here we call side effects - domain events, and the public event(s) integration events.*
 
-A change in context A is triggered and event(s) created. After writing them to a local stream (ES), they are put in an outbox, in the same transaction. The outbox is then check to see if there is something we want to share with the world, a domain event. If so it's published, if not it's move to the inbox. Both the outbox and inbox are persisted queues owned by the context. The inbox is then read to dipatch events within the context. If a change is of value to rest of the world, a domain event might be crated by some ACL then but in the outbox and dispatched out from the context.
+A change in context A is triggered and event(s) created. After writing them to a local stream (ES), they are put in an outbox, in the same transaction. A seperate single process process the outbox. The outbox then checks to see if there is something we want to share with the world, an integration event. If so it's published , if not it's move to the inbox. Both the outbox and inbox are persisted queues owned by the context. The inbox is then read to dipatch events within the context. If a change is of value to rest of the world, a domain event might be crated by some ACL then but in the outbox and dispatched out from the context.
+
+Event going through the inbox might trigger an Integration Event to be published (image below).
 
 The consuming context puts messages of interest in it's inbox, from there they will be dispached. On it's way it might be transformed by an ACL to fit the context. This depends on the kind of relationship between the contexts.
 
+![Context to context communication](assets/context_outbox_dispatcher.png)
+        
 ---
 
 **Note** The example above does't imply usage of DTC. Just some for of implemention of the outbox pattern.
+
+
 
 ---
 
