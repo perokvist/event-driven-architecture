@@ -19,6 +19,8 @@ The consuming context puts messages of interest in it's inbox, from there they w
 
 ![Context to context communication](assets/context_outbox_dispatcher.png)
         
+When using an EventStore, the outbox might not be needed, the disptacher could subscribe to changes or pull the "all" stream or equivilant. 
+
 ---
 
 **Note** The example above does't imply usage of DTC. Just some for of implemention of the outbox pattern.
