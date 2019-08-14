@@ -5,7 +5,7 @@ layout: default
 ## Communication between contexts
 
 When driving processes or passing information to build read models between contexts, what kind of events are we sending between services?
-It easy to assume that if Context A is using events to drive it internal state, that we just publish these side efftect to the rest of the world. This might solve building a model for read or trigger some proccess in another context, but quickly gets to granular and volatile. Informing the rest of the world with a business realted events is often a better fit.
+It easy to assume that if Context A is using events to drive its internal state, that we just publish these side efftect to the rest of the world. This might solve building a model for read or trigger some proccess in another context, but quickly gets to granular and volatile. Informing the rest of the world with a business realted events is often a better fit.
 
 ![Context to context communication](assets/context_to_context.png)
 
