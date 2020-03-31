@@ -13,12 +13,15 @@ Collection of articles and session follow-ups related to EDA.
 
 ## Index
 
+- Composition & Performance
+    * [Slides - Server-side scalable web perfomance](https://www.slideshare.net/Perkvist1/server-side-scalable-web-performance)
+    * [Article - Short defentition of fragments](fragments.html)
 - Bounded contexts
     * [Article - Context to Context communication](integration.html)
 - Self contained systems
     * [Article - SCS & Composition](scs.html)
     * [Slides - Self contained systems - In Practice](https://www.slideshare.net/Perkvist1/self-contained-systems-in-practice)
-- Eventdriven servies through logs 
+- Eventdriven services through logs 
     * [Article - event driven / event integration](logs.html)
     * [Implementation](implementation.html)
     * [Slides - Microservices - in Practice](https://www.slideshare.net/Perkvist1/practical-experiences-with-microservices-in-the-cloud)
