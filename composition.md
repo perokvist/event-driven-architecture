@@ -83,7 +83,9 @@ Runtime dependencies that might break different parts and have negative impact o
 ### Hydration
 Process popularized by "isomorphic" applications where rendering is made both on the server and on the client. Usually using Node on the server to maximize code reuse.
 
-Due to the [cost of delaying TTI](https://addyosmani.com/blog/rehydration/) by hydrating a complete tree, efforts are being made by front-end libraries to achieve partial / progressive rendering.
+Due to the [cost of delaying TTI](https://addyosmani.com/blog/rehydration/) by hydrating a complete tree, efforts are being made by several front-end libraries to achieve partial / progressive rendering.
+
+More about hydration under SPA/Applications
 
 ## Behavior - coupling - complex
 In a more complex, full app experience there might be other considerations, where a "global" runtime and component model is more suited.
@@ -99,4 +101,12 @@ This is an area where traditionally SPA was intended, hence single page applicat
 
 Since a lot off apps are catered for internal use within companies/enterprises, where adoption of client/front-end competence is expensive to gain and to keep, we now see attraction to WASM based app models like [Blazor](https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202010022#.X5nEBnNIvTk.link.).
 
-Some SPAs could be seen as a shell, so there is a option for refactoring components towards micro frontends.
+Some SPAs could be seen as a shell, so there is a option for refactoring components towards micro-frontends.
+
+#### Pros 
+* While isomorphic SPAs suffer from worsened TTI as a result of the SSR + hydration process, loading subsequent routes may feel faster due to lowered data volumes between routes and the browser not having to parse and recompile previously loaded JS.
+* Isomorphic SPAs provide users a fully rendered page compared to a blank screen on client side rendered SPA.
+
+#### Cons
+* Full hydration of a SPA is costly, delays TTI - partial / progressive hydration is adviced.
+* While a good fit for web applications like Slack or Spotify, we see a trend of excessive usage of SPAs in the regular web space due to framework availability and popularity. This introduces unnecessary complexity and costs associated with SPA (e.g handling SEO). [You probably don't need a single-page application](https://plausible.io/blog/you-probably-dont-need-a-single-page-app)
