@@ -102,7 +102,6 @@ This is an area where traditionally SPA was intended, hence single page applicat
 Since a lot off apps are catered for internal use within companies/enterprises, where adoption of client/front-end competence is expensive to gain and to keep, we now see attraction to WASM based app models like [Blazor](https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202010022#.X5nEBnNIvTk.link.).
 
 Some SPAs could be seen as a shell, so there is a option for refactoring components towards micro-frontends.
-
 #### Pros 
 * While isomorphic SPAs suffer from worsened TTI as a result of the SSR + hydration process, loading subsequent routes may feel faster due to lowered data volumes between routes and the browser not having to parse and recompile previously loaded JS.
 * Isomorphic SPAs provide users a fully rendered page compared to a blank screen on client side rendered SPA.
