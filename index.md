@@ -14,7 +14,7 @@ Collection of articles and session follow-ups related to EDA.
 ## Index
 
 - Micro frontends 
-    * [Composition and Classification](classification.html)
+    * [Composition and Classification](composition.html)
 - Composition & Performance
     * [Slides - Server-side scalable web perfomance](https://www.slideshare.net/Perkvist1/server-side-scalable-web-performance)
     * [Article - Short defentition of fragments](fragments.html)
