@@ -13,10 +13,10 @@ We also see the downside or miss use of micro front-ends pop-up in thought works
 
 Nicolas Delfino has also been publishing a few new articles of the subject on his [blog](https://www.nicolasdelfino.com/blog), expanding on the ideas, focusing on different aspects of a larger puzzle.
 
-In this post we'll try to zoom-out and look at this larger puzzle and classify a lot off the different scenarios regarding web-composition, since the full scope is not something for a framework but much more about combining approaches, techniques and teams to solve technical and organizational problems, since ownership of data, templating and resources could be in different systems/teams.
+In this post we'll try to zoom-out and look at this larger puzzle and classify a lot off the different scenarios regarding web-composition, since the full scope is not something for a framework but much more about combining approaches, techniques and teams to solve technical and organizational problems. This since ownership of data, templating and resources could be in different systems/teams.
 
 ## Pages
-There need to be something on the other side of a user route.
+There needs to be something on the other side of a user route.
 
 A resource that could own content and/or behavior but utilizing composition. A page where we could compose.
 
