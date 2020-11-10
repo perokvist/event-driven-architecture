@@ -23,7 +23,7 @@ And while this is happening there is a new kid on the block, mainly driven by ed
 
 In Azure we see more and more services adopting containers as an deployment option even into catered services. In some cases you could run the workload your self, but running it in a catered service reduces complexty and adds specialized features.
 
-This could also be seen in the early announced integrations with Dapr. Even if the intial release might be targeting kubernetes, we see integrated services support containers, compose and in some cases even [HELM](https://helm.sh/).
+This could also be seen in the early announced integrations with Dapr. Even if the intial release might be targeting kubernetes, we see integrated services support containers, [docker compose](https://docs.docker.com/compose/) and in some cases even [HELM](https://helm.sh/).
 
 - [Azure Logic apps integration](https://cloudblogs.microsoft.com/opensource/2020/05/26/announcing-cloud-native-workflows-dapr-logic-apps/)
 - [Azure functions integration](https://cloudblogs.microsoft.com/opensource/2020/07/01/announcing-azure-functions-extension-for-dapr/)
