@@ -32,9 +32,11 @@ This could also be seen in the early announced integrations with Dapr. Even if t
 You could also see [compose or helm support around app services](https://docs.microsoft.com/en-us/azure/app-service/quickstart-multi-container), and [Azure Container instances](https://docs.docker.com/engine/context/aci-integration/).
 
 ## Dapr
-[Dapr](https://dapr.io/) could be run a process, but the main cases is a sidecar container (and possibly a set of containers for dapr services). So dapr could be placed side by side to nearly anything. This makes dapr's model attractive for integration into service offerings.
+[Dapr](https://dapr.io/) could be run a process, but the main cases is a sidecar container (and possibly a set of containers for dapr services). So dapr could be placed side by side to nearly anything. This makes dapr's model attractive for integration into service offerings. It's "pluggable" component model allows cloud native development with more focus on the application than infrastructure.
 
-And together with [OAM](https://oam.dev/), one could imagine how future services could look like.
+Since it's targeting challanges within distributed system development, it's full potential today might be best fulfilled together with an orcestrator. But from a developers perspective that shouldn't matter. A perspective shared by [OAM](https://oam.dev/).
+
+And together with OAM, one could imagine how future services could look like.
 
 Speaking of the future, imagine dapr running a WASM module, acting as a bridge between app and cloud, or in a low powered device that also could be managed by an orcestrator via [OCI](https://opencontainers.org/).
 
