@@ -34,7 +34,7 @@ You could also see [compose or helm support around app services](https://docs.mi
 ## Dapr
 [Dapr](https://dapr.io/) could be run a process, but the main cases is a sidecar container (and possibly a set of containers for dapr services). So dapr could be placed side by side to nearly anything. This makes dapr's model attractive for integration into service offerings.
 
-And together with [OAM](https://oam.dev/), one could image how future services could look like.
+And together with [OAM](https://oam.dev/), one could imagine how future services could look like.
 
 Speaking of the future, imagine dapr running a WASM module, acting as a bridge between app and cloud, or in a low powered device that also could be managed by an orcestrator via [OCI](https://opencontainers.org/).
 
