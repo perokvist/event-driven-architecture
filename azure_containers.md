@@ -13,7 +13,7 @@ Containers as an development artifact has been around for a while. To ease devel
 On another hand, when you have an container infrastructure what kind of workloads should you run/manage? 
 How do you leverage PaaS, FaaS, CaaS and SaaS offerings? 
 
-Adopting containers to use as DX might seem straight forward, but could be a barrier in some environments, here we see project like Tye pop-up, where the creation of the container(s) could be seen purely as a build artifact.
+Adopting containers to use as DX might seem straight forward, but could be a barrier in some environments, here we see projects like [Tye](https://github.com/dotnet/tye) pop-up, where the creation of the container(s) could be seen purely as a build artifact.
 
 To use a container as the unit of scale could be seen as the defentition of CaaS, but we see utlization of containers be a part of many other cloud services, that is seen as PaaS or FaaS.
 
