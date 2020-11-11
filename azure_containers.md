@@ -9,13 +9,13 @@ For the last decade containers has entered the scene as a better unit for platfo
 
 ## Containers
 
-Containers as an development artifact has been around for a while. To ease development in some cases, being a key part in infrastructure and of course utilized with orcestrators.
+Containers as an development artifact has been around for a while. To ease development in some cases, being a key part in infrastructure and of course utilized with orchestrators.
 On another hand, when you have an container infrastructure what kind of workloads should you run/manage? 
 How do you leverage PaaS, FaaS, CaaS and SaaS offerings? 
 
 Adopting containers to use as DX might seem straight forward, but could be a barrier in some environments, here we see projects like [Tye](https://github.com/dotnet/tye) pop-up, where the creation of the container(s) could be seen purely as a build artifact.
 
-To use a container as the unit of scale could be seen as the defentition of CaaS, but we see utlization of containers be a part of many other cloud services, that is seen as PaaS or FaaS.
+To use a container as the unit of scale could be seen as the definition of CaaS, but we see utilization of containers be a part of many other cloud services, that is seen as PaaS or FaaS.
 
 And while this is happening there is a new kid on the block, mainly driven by edge providers, where WASM is used as an deployment unit, in the same sense as a container, where a platform instead of docker as unit uses [WASM](https://webassembly.org/).
 
@@ -24,9 +24,9 @@ And while this is happening there is a new kid on the block, mainly driven by ed
 
 ## Azure Services and Containers
 
-In Azure we see more and more services adopting containers as an deployment option even into catered services. In some cases you could run the workload your self, but running it in a catered service reduces complexty and adds specialized features.
+In Azure we see more and more services adopting containers as an deployment option even into catered services. In some cases you could run the workload your self, but running it in a catered service reduces complexity and adds specialized features.
 
-This could also be seen in the early announced integrations with Dapr. Even if the intial release might be targeting kubernetes, we see integrated services support containers, [docker compose](https://docs.docker.com/compose/) and in some cases even [HELM](https://helm.sh/).
+This could also be seen in the early announced integrations with Dapr. Even if the initial release might be targeting kubernetes, we see integrated services support containers, [docker compose](https://docs.docker.com/compose/) and in some cases even [HELM](https://helm.sh/).
 
 - [Azure Logic apps integration](https://cloudblogs.microsoft.com/opensource/2020/05/26/announcing-cloud-native-workflows-dapr-logic-apps/)
 - [Azure functions integration](https://cloudblogs.microsoft.com/opensource/2020/07/01/announcing-azure-functions-extension-for-dapr/)
@@ -39,13 +39,13 @@ You could also see [compose or helm support around app services](https://docs.mi
 
 >*"Dapr is a portable, event-driven runtime that makes it easy for developers to build resilient, microservice stateless and stateful applications that run on the cloud and edge and embraces the diversity of languages and developer frameworks."* - [dapr.io](https://dapr.io/)
 
-Since it's targeting challanges within distributed system development, it's full potential today might be best fulfilled together with an orcestrator. But from a developers perspective that shouldn't matter. A perspective shared by [OAM](https://oam.dev/).
+Since it's targeting challenges within distributed system development, it's full potential today might be best fulfilled together with an orchestrator. But from a developers perspective that shouldn't matter. A perspective shared by [OAM](https://oam.dev/).
 
 And together with OAM, one could imagine how future services could look like.
 
 >*"An open standard for defining cloud native apps and building app-centric platforms."* - [oam.dev](https://oam.dev/)
 
-Speaking of the future, imagine dapr running a WASM module, acting as a bridge between app and cloud, or in a low powered device that also could be managed by an orcestrator via [OCI](https://opencontainers.org/).
+Speaking of the future, imagine dapr running a WASM module, acting as a bridge between app and cloud, or in a low powered device that also could be managed by an orchestrator via [OCI](https://opencontainers.org/).
 
 Read more about dapr and its future in [Learning Dapr](https://g.co/kgs/QaJk77) (book).
 
