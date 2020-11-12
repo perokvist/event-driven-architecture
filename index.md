@@ -13,6 +13,8 @@ Collection of articles and session follow-ups related to EDA.
 
 ## Index
 
+- Unit of deployment
+    * [A brief look into the future, guided by dapr](azure_containers.html)
 - Micro frontends 
     * [Article - Composition and Classification](composition.html)
 - Composition & Performance

@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# Units of deployment - a brief look into the future guided by dapr
+# Units of deployment - a brief look into the future, guided by dapr
 
 Application code has long been the deployment unit / unit of scale. Elevated in the cloud by PaaS offerings.
 For the last decade containers has entered the scene as a better unit for platforms to work with.
