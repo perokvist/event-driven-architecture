@@ -20,15 +20,24 @@ One aspect of the static approch is of course that the resource is "ready", maki
 The cost of behavior (javascript) is still there if used. Progressive enhancement is a good fit. For content there is also the option to re render the static resource on change of dependant data, instead on relying on client side fetch and templating.
 
 ### Build vs application
-One challange is that many frameworks use build steps to "pre-render" on changes, mixing application responsabilities and build time responsabilities.
+One challange is that many frameworks use/needs build steps to "pre-render" on changes, mixing application responsabilities and build time responsabilities.
 Where you could compare this as a trigger for application code to a github web hook, triggering a build action.
+
+### Event driven
 Using SSR an option of rendering a part and push to the edge is an option, and of course something a framework or platform could support.
 
+This behavior could also be compared to SSR with CDN in front where you purge parts of the CDN on changes.
 
+> So it all comes down to push or pull strategies using an api and/or SSR optional static resources.
 
 ## Azure
+
+Let focus on static sites and assets in Azure, ignoring the PaaS offerings for serving web apps.
+
 - [Azure Static Web Apps](https://azure.microsoft.com/en-us/services/app-service/static/)
 - [Static Web site in Azure Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website)
+
+### Azure Static Web Apps
 
 
 
