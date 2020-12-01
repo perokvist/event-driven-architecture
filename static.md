@@ -8,6 +8,8 @@ Using the edge/CDN for optimizing static assets is not anything new. Having web 
 
 Using tools for "pre-rendering" sites with server like capabilities, that "only" relay on api communication, is also not new, but cloud offerings catering to these kind of apps grow i numbers, with services like [Netlify](https://www.netlify.com/) being a key driver.
 
+> This article focuses on static web sites created by a catered tool or SSR, not on SPA's nor "pre-rendering" in that context.
+
 ## JAM-stack
 Apps build with javascript (behavior), api (for data build time and runtime) and markup (static), is often refered to as [JAM-stack](https://jamstack.org/).
 At app level refering to or targeting a stack might be applicable but for scenarios with composition, the tool for creating the resource becomes blured, and this becomes a local pattern (if not using build time composition).
