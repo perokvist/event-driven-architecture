@@ -2,37 +2,39 @@
 layout: default
 ---
 
-# Static web app on Azure
+# Static web apps
 
 Using the edge/CDN for optimizing static assets is not anything new. Having web sites and web experinces consists of only static resource dates back to the dawn of the web.
 
-Using tools for "pre-rednering" site with server like capabilities, and that "only" relay on api communication, is also not new, but cloud offerings catering to these kind of apps grow i numbers, with [Netlify](https://www.netlify.com/) being a key driver.
+Using tools for "pre-rendering" sites with server like capabilities, that "only" relay on api communication, is also not new, but cloud offerings catering to these kind of apps grow i numbers, with services like [Netlify](https://www.netlify.com/) being a key driver.
 
 ## JAM-stack
 Apps build with javascript (behavior), api (for data build time and runtime) and markup (static), is often refered to as [JAM-stack](https://jamstack.org/).
-At app level refering to or targeting a stack might be applicable but for scenario with composition, the tool for creating the resource becomes blured, and this becomes local patterns.
+At app level refering to or targeting a stack might be applicable but for scenarios with composition, the tool for creating the resource becomes blured, and this becomes a local pattern (if not using build time composition).
 
 ## Composition
-Using the pillars of the web (html/css/js) as static or SSR resource also open the door for composition using transclusion of markup and assets.
+Using the pillars of the web (html/css/js) as static or server-side-rendered(SSR) resource also opens the door for composition using transclusion of markup and assets.
 
 ## Performance
-One aspect of the static approch is of course that the resource is "ready", making it cheap to render for the browser and easy to cache or store in the edge.
+One aspect of the static approch is of course that the resource is "ready", making it cheap to render for the browser and easy to cache or store on the edge. 
 The cost of behavior (javascript) is still there if used. Progressive enhancement is a good fit. For content there is also the option to re render the static resource on change of dependant data, instead on relying on client side fetch and templating.
 
 ### Build vs application
-One challange is that many frameworks use/needs build steps to "pre-render" on changes, mixing application responsabilities and build time responsabilities.
-Where you could compare this as a trigger for application code to a github web hook, triggering a build action.
+One challange is that many platform/frameworks use/needs build steps to "re-render" on changes, mixing application responsabilities and build time responsabilities.
+You could compare this to a trigger from application code to a github web hook, triggering a build action.
 
 ### Event driven
-An event that trigger a build is one option.
+An event that triggers a build is one option.
 
-Using SSR an option of rendering a part and push to the edge is an option, and of course something a framework or platform could support.
+Using SSR rendering a part and push to the edge is an option, and of course something a framework or platform could support.
 
 This behavior could also be compared to SSR with CDN in front where you purge parts of the CDN on changes.
 
-> So it all comes down to push or pull strategies using an api and/or SSR optional static resources. Combining patterns, and possible enable composition scenarios for both SSI and CSI.
+> Conclusion : It all comes down to push or pull strategies, utilizing the edge, leveraging apis, SSR and static resources ,for performance, SEO and composition. Combining patterns, and possible enable composition scenarios for both server-side-inclusion(SSI) and client-side-inclusion (CSI). In a simple application only one pattern might suffice, in a more complex scenario blending different patterns are applicable.
 
-## Azure
+Lets look at the big three could providers and their support for static web apps. Staring with Azure and later compare the findings with GCP and AWS offerings.
+
+## Static Web in Azure
 
 Let focus on static sites and assets in Azure, ignoring the PaaS offerings for serving web apps.
 
@@ -52,6 +54,23 @@ But since the artifacts are not accessible trough any api/sdk, the only why to p
 
 Azure storage has an option to create a "web" container where its assets will be served via a simple http server. Its then simple to add a CDN in front.
 This makes this offering more "bare bone" with less features, but easly managed since you could change and push files via api/sdk.
+
+## Static Web on GCP
+
+Much like the azure storage option, where you push files to a bocket to serve, but on GCP you need a load balancer to add HTTPS support to your domain.
+- [Hosting a static website on cloud storage](https://cloud.google.com/storage/docs/hosting-static-website)
+
+## Static Web on AWS
+
+- [Hosting static web on S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html)
+- [Hosting static web with AWS Amplify](https://aws.amazon.com/amplify/console/)
+
+### Hosting static web with AWS Amplify
+Like Azure Static Web Apps - A service catered to static web apps, with CI/CD support for popular frameworks. Domain, sercurity and globaly distributed. With integrations for build backend APIs.
+
+### Hosting static web on S3
+
+Like the CGP/Azure offering at this level. Host files from a S3 bucket, but with support for redirect, permission and logging. For HTTPS support you need cloud front.
 
 ### Sample
 
