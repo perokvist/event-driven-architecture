@@ -6,7 +6,7 @@ layout: default
 
 Using the edge/CDN for optimizing static assets is not anything new. Having web sites and web experinces consists of only static resource dates back to the dawn of the web.
 
-Using tools for "pre-rendering" sites with server like capabilities, that "only" relay on api communication, is also not new, but cloud offerings catering to these kind of apps grow i numbers, with services like [Netlify](https://www.netlify.com/) being a key driver.
+Using tools for "pre-rendering" sites with server like capabilities, that "only" rely on api communication, is also not new, but cloud offerings catering to these kind of apps grow i numbers, with services like [Netlify](https://www.netlify.com/) being a key driver.
 
 In this article we'll navigate "static web" as a tool/pattern with composition and event-driven pattern and look at offerings for static web hosting by the major cloud providers. 
 
@@ -36,9 +36,9 @@ Using SSR rendering a part and push to the edge is an option, and of course some
 
 This behavior could also be compared to SSR with CDN in front where you purge parts of the CDN on changes.
 
-> Conclusion : It all comes down to push or pull strategies, utilizing the edge, leveraging apis, SSR and static resources ,for performance, SEO and composition. Combining patterns, and possible enable composition scenarios for both server-side-inclusion(SSI) and client-side-inclusion (CSI). In a simple application only one pattern might suffice, in a more complex scenario blending different patterns are applicable.
+> Conclusion : It all comes down to push or pull strategies, utilizing the edge, leveraging apis, SSR and static resources ,for performance, SEO and composition. Combining patterns, and possible enable composition scenarios for both server-side-inclusion(SSI) and client-side-inclusion (CSI). In a simple application one pattern might suffice, in a more complex scenario blending different patterns are key.
 
-Lets look at the big three could providers and their support for static web apps. Staring with Azure and later compare the findings with GCP and AWS offerings.
+Lets look at the big three cloud providers and their support for static web apps. Starting with Azure and later compare the findings with GCP and AWS offerings.
 
 ## Static Web in Azure
 
@@ -51,8 +51,8 @@ Let focus on static sites and assets in Azure, ignoring the PaaS offerings for s
 
 This service is catered for static site generators combined with HTTP apis.
 
-A github action run your generator and pushes the artifacts to the service, if you combine this with function in your project, they are deployed as well under the same domain.
-With support for routes, login/security and different envionment this is a perfect match for static sites. Not to mention that is also globaly distributed by default.
+A github action runs your generator and pushes the artifacts to the service, if you combine this with a function in your project, they are deployed as well under the same domain.
+With support for routes, login/security and different envionment this is a perfect match for static sites. Not to mention that it also is globaly distributed by default.
 
 But since the artifacts are not accessible trough any api/sdk, the only why to push changes is through the github action. 
 
@@ -63,7 +63,7 @@ This makes this offering more "bare bone" with less features, but easly managed 
 
 ## Static Web on GCP
 
-Much like the azure storage option, where you push files to a bocket to serve, but on GCP you need a load balancer to add HTTPS support to your domain.
+Much like the azure storage option, where you push files to a bucket to serve, but on GCP you need a load balancer to add HTTPS support to your domain.
 - [Hosting a static website on cloud storage](https://cloud.google.com/storage/docs/hosting-static-website)
 
 ## Static Web on AWS
@@ -78,6 +78,10 @@ Like Azure Static Web Apps - A service catered to static web apps, with CI/CD su
 
 Like the CGP/Azure offering at this level. Host files from a S3 bucket, but with support for redirect, permission and logging. For HTTPS support you need cloud front.
 
-> We cover services from major cloud providers here, with different feature sets, some with backend integration a long with broader integration of the providers offerings. In the space of hosting static web apps, there are several offerings from the CDN providers them selfs, such as [Cloudflare's worker sites](https://workers.cloudflare.com/sites).
+> We covered services from major cloud providers here, with different feature sets, some with backend integration along with broader integration of the provider offerings. In the space of hosting static web apps, there are several offerings from the CDN providers them selfs, such as [Cloudflare's worker sites](https://workers.cloudflare.com/sites).
+
+> As we stated in the intro, we have not focused on services offerings for hosting SPA in diffent falvors. But we should note another use case for static web apps - hosting webassembly based application/pwas.
+
+> Many static site generators run their web optimized generator/templating on the server for SSR cababilities. Concepts that might be best kept orthogonal. Worth noting is tools that goes the other way around like [statiq](https://statiq.dev/).
 
 
