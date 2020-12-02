@@ -8,7 +8,9 @@ Using the edge/CDN for optimizing static assets is not anything new. Having web 
 
 Using tools for "pre-rendering" sites with server like capabilities, that "only" relay on api communication, is also not new, but cloud offerings catering to these kind of apps grow i numbers, with services like [Netlify](https://www.netlify.com/) being a key driver.
 
-> This article focuses on static web sites created by a catered tool or SSR, not on SPA's nor "pre-rendering" in that context.
+In this article we'll navigate "static web" as a tool/pattern with composition and event-driven pattern and look at offerings for static web hosting by the major cloud providers. 
+
+> This article focuses on static web sites created by a catered tool or SSR, not on SPA's nor "pre-rendering" in that context. Some services mentioned will support this case as well.
 
 ## JAM-stack
 Apps build with javascript (behavior), api (for data build time and runtime) and markup (static), is often refered to as [JAM-stack](https://jamstack.org/).
@@ -20,6 +22,8 @@ Using the pillars of the web (html/css/js) as static or server-side-rendered(SSR
 ## Performance
 One aspect of the static approch is of course that the resource is "ready", making it cheap to render for the browser and easy to cache or store on the edge. 
 The cost of behavior (javascript) is still there if used. Progressive enhancement is a good fit. For content there is also the option to re render the static resource on change of dependant data, instead on relying on client side fetch and templating.
+
+- [JAMstack performance](https://css-tricks.com/a-look-at-jamstacks-speed-by-the-numbers/)
 
 ### Build vs application
 One challange is that many platform/frameworks use/needs build steps to "re-render" on changes, mixing application responsabilities and build time responsabilities.
@@ -74,7 +78,6 @@ Like Azure Static Web Apps - A service catered to static web apps, with CI/CD su
 
 Like the CGP/Azure offering at this level. Host files from a S3 bucket, but with support for redirect, permission and logging. For HTTPS support you need cloud front.
 
-### Sample
+> We cover services from major cloud providers here, with different feature sets, some with backend integration a long with broader integration of the providers offerings. In the space of hosting static web apps, there are several offerings from the CDN providers them selfs, such as [Cloudflare's worker sites](https://workers.cloudflare.com/sites).
 
-For a more technical example, this [sample](https://github.com/perokvist/Dapr.WebPush) shows how to run dapr and an app side by side in Azure Container Instances.
 
