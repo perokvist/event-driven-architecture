@@ -4,20 +4,20 @@ layout: default
 
 # Static web apps
 
-Using the edge/CDN for optimizing static assets is not anything new. Having web sites and web experinces consists of only static resource dates back to the dawn of the web.
+Using the edge/CDN for optimizing static assets is not anything new. Having web sites and web experinces consists of only static resources dates back to the dawn of the web.
 
 Using tools for "pre-rendering" sites with server like capabilities, that "only" rely on api communication, is also not new, but cloud offerings catering to these kind of apps grow i numbers, with services like [Netlify](https://www.netlify.com/) being a key driver.
 
-In this article we'll navigate "static web" as a tool/pattern with composition and event-driven pattern and look at offerings for static web hosting by the major cloud providers. 
+In this article we'll navigate "static web" as a tool/pattern with composition and event-driven patterns and look at offerings for static web hosting by the major cloud providers. 
 
 > This article focuses on static web sites created by a catered tool or SSR, not on SPA's nor "pre-rendering" in that context. Some services mentioned will support this case as well.
 
 ## JAM-stack
-Apps build with javascript (behavior), api (for data build time and runtime) and markup (static), is often refered to as [JAM-stack](https://jamstack.org/).
+Apps built with javascript (behavior), api (for data build time and runtime) and markup (static), is often refered to as [JAM-stack](https://jamstack.org/).
 At app level refering to or targeting a stack might be applicable but for scenarios with composition, the tool for creating the resource becomes blured, and this becomes a local pattern (if not using build time composition).
 
 ## Composition
-Using the pillars of the web (html/css/js) as static or server-side-rendered(SSR) resource also opens the door for composition using transclusion of markup and assets.
+Using the pillars of the web (html/css/js) as static or server-side-rendered(SSR) resources also opens the door for composition using transclusion of markup and assets.
 
 ## Performance
 One aspect of the static approch is of course that the resource is "ready", making it cheap to render for the browser and easy to cache or store on the edge. 
@@ -84,4 +84,6 @@ Like the CGP/Azure offering at this level. Host files from a S3 bucket, but with
 
 > Many static site generators run their web optimized generator/templating on the server for SSR cababilities. Concepts that might be best kept orthogonal. Worth noting is tools that goes the other way around like [statiq](https://statiq.dev/).
 
-
+## What if...
+We could blur the lines between SSR and static files on a CDN. One move could be to move the web framework doing SSR to the edge. But what about if it could be more catered for the CDN, and thus faster. Many CDN providers are looking into utilizing WebAssembly to execute rules/middleware per request through the CDN. What if we hade a simple "view engine" in this pipeline, running templating in a performant way on each request. Then access to the data to template introduces latency (back to data center), but here we could have static data on the CDN, or as some providers offer, data at the CDN in a key/value database.
+This might be a different approch or flavor to static web frameworks running on the CDN as mentioned earlier.
