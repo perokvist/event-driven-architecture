@@ -25,11 +25,11 @@ The cost of behavior (javascript) is still there if used. Progressive enhancemen
 
 - [JAMstack performance](https://css-tricks.com/a-look-at-jamstacks-speed-by-the-numbers/)
 
-### Build vs application
+## Build vs application
 One challange is that many platform/frameworks use/needs build steps to "re-render" on changes, mixing application responsabilities and build time responsabilities.
 You could compare this to a trigger from application code to a github web hook, triggering a build action.
 
-### Event driven
+## Event driven
 An event that triggers a build is one option.
 
 Using SSR rendering a part and push to the edge is an option, and of course something a framework or platform could support.
