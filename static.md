@@ -6,7 +6,7 @@ layout: default
 
 Using the edge/CDN for optimizing static assets is not anything new. Having web sites and web experiences consists of only static resources dates back to the dawn of the web.
 
-Using tools for "pre-rendering" sites with server like capabilities, that "only" rely on api communication, is also not new, but cloud offerings catering to these kind of apps grow i numbers, with services like [Netlify](https://www.netlify.com/) being a key driver.
+Using tools for "pre-rendering" sites with server like capabilities, that "only" rely on api communication, is also not new, but cloud offerings catering to these kind of apps grow in numbers, with services like [Netlify](https://www.netlify.com/) being a key driver.
 
 In this article we'll navigate "static web" as a tool/pattern with composition and event-driven patterns and look at offerings for static web hosting by the major cloud providers. 
 
