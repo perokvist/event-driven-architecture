@@ -32,7 +32,7 @@ You could compare this to a trigger from application code to a github web hook, 
 ## Event driven
 An event that triggers a build is one option.
 
-Using SSR rendering a part and push to the edge is an option, and of course something a framework or platform could support.
+But application level events that could trigger side effects is another where, using SSR rendering  and push to the edge is an option, and of course something a framework or platform could support.
 
 This behavior could also be compared to SSR with CDN in front where you purge parts of the CDN on changes.
 
