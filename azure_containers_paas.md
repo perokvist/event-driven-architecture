@@ -22,6 +22,12 @@ To futher add to the mix, lets say that dapr is installed in the cluster. Dapr c
 
 Now imagine all of this as a cloud offering!
 
-*(Dapr support in KubeVela is target for its 1.1 release.*
+*(Dapr support in KubeVela is target for its 1.1 release.)*
+
+### Azure
+
+To compare an illustrate this with Azure offerings with containers as deployment;
+
+![Service definition](assets/azure_container_paas.png)
 
 
