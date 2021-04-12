@@ -13,10 +13,12 @@ Collection of articles and session follow-ups related to EDA.
 
 ## Index
 
-- Static Web Apps
-    * [Static web apps](static.html)
 - Unit of deployment
-    * [A brief look into the future, guided by dapr](azure_containers.html)
+    * [Article - Orchestrated containers, meets PaaS and Serverless](azure_containers_paas-html)
+- Static Web Apps
+    * [Article - Static web apps](static.html)
+- Unit of deployment
+    * [Article - A brief look into the future, guided by dapr](azure_containers.html)
 - Micro frontends 
     * [Article - Composition and Classification](composition.html)
 - Composition & Performance
