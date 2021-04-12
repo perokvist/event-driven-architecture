@@ -5,7 +5,7 @@ layout: default
 # Orchestrated containers, meets PaaS and Serverless
 
 Orchestrator like Kubernetes has been the go to infrastructure for handeling more complex workloads.
-Utlizing compute more evenly in cluster(s), scaling per unit. But this comes with some operational complexety. Different flavors of hosted orchestrator(s) is in every major cloud providers offering.
+Utilizing compute more evenly in cluster(s), scaling per unit. But this comes with some operational complexety. Different flavors of hosted orchestrator(s) is in every major cloud providers offering.
 
 We also see orchestrator apis added on top of serverless infrastructure, to enable a elastic serverless cluster(s).
 
