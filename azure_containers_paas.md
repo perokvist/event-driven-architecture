@@ -4,6 +4,8 @@ layout: default
 
 # Orchestrated containers, meets PaaS and Serverless
 
+*In [a brief look into the future, guided by dapr](azure_containers.html) speculation about the future for containers in Azure used dapr (v0.9 time frame) as a guiding light. In this article the future of PaaS is put under scrutiny.*
+
 Orchestrator like Kubernetes has been the go to infrastructure for handeling more complex workloads.
 Utilizing compute more evenly in cluster(s), scaling per unit. But this comes with some operational complexety. Different flavors of hosted orchestrator(s) is in every major cloud providers offering.
 
@@ -11,7 +13,7 @@ We also see orchestrator apis added on top of serverless infrastructure, to enab
 
 This eases some aspects of running applications in clusters, but the deployment and managment of the orchestrator still remains.
 
-This is where projects like [OAM (open application model)](oam.dev) comes in. Through a developer centric model, it abstracts the unerlaying orchestrator expessing capabilites (traits) and application in one model.
+This is where projects like [OAM (open application model)](https://oam.dev) comes in. Through a developer centric model, it abstracts the unerlaying orchestrator expessing capabilites (traits) and application in one model.
 
 This makes it possible to have one application centric model on top of different services.
 
@@ -26,8 +28,16 @@ Now imagine all of this as a cloud offering!
 
 ### Azure
 
-To compare an illustrate this with Azure offerings with containers as deployment;
+Following image is to compare and illustrate this scenario with Azure offerings with containers as deployment;
 
 ![Service definition](assets/azure_container_paas.png)
 
+All share the deployment option - from container regestries, in this image the Azure Container Registry.
+
+- Azure web apps for containers and Azure functions support docker compose (limited) for deployment. They use service plans for container compute/placement with "auto-scaling support". They also share first party git hub action for deployment.
+- Azure container instances (ACI) has richer docker compose support, and different models for compute utilization/lifetime. But without "auto-scaler".
+This service is utilized for ["virtual nodes"](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes), where Kubernetes API is added on top of this serverless offering.
+- Azure Kubernetes Service (AKS) is a hosted Kubernetes service. Dapr and other options is also installabe in this service. 
+- Service Fabric has it's own deployment manifest, but also programing models for stateful services (with service regitry support). Dapr will be supported (in the future).
+- The "mystery box" is the imagined service.
 
