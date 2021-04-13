@@ -20,7 +20,9 @@ This makes it possible to have one application centric model on top of different
 In the Kubernetes case this is realized through [KubeVela](https://kubevela.io/), a Kubernetes plugin that uses OAM for deployments and enables an application centric PaaS way of deploying to Kubernetes.
 This lets the "PaaS" be flexible, since it could add and express underlaying capabilities of the platform as traits.
 
-To further add to the mix, let's say that [https://dapr.io](dapr) is installed in the cluster. Dapr could then be exposed as traits in the OAM model. Making the PaaS "daperized".
+Autoscaling could one area that could be extended and exposed as traits. Event driven autoscaling through [KEDA](https://keda.sh/) is a possability.
+
+To further add to the mix, let's say that [dapr](https://dapr.io) is installed in the cluster. Dapr could then be exposed as traits in the OAM model. Making the PaaS "daperized".
 
 Now imagine all of this as a cloud offering!
 
