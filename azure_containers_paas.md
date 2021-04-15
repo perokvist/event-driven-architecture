@@ -43,3 +43,4 @@ This service is utilized for ["virtual nodes"](https://docs.microsoft.com/en-us/
 - Service Fabric has its own deployment manifest, but also programing models for stateful services (with service registry support). Dapr will be supported (in the future).
 - The "mystery box" is the imagined service.
 
+Lets see what the future holds...
