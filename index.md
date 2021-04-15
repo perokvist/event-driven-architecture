@@ -14,7 +14,7 @@ Collection of articles and session follow-ups related to EDA.
 ## Index
 
 - Unit of deployment
-    * [Article - Orchestrated containers, meets PaaS and Serverless](azure_containers_paas-html)
+    * [Article - Orchestrated containers, meets PaaS and Serverless](azure_containers_paas.html)
 - Static Web Apps
     * [Article - Static web apps](static.html)
 - Unit of deployment
