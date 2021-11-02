@@ -9,17 +9,17 @@ layout: default
 Even if targeting a distributed architecture or a "modular monolith" - the notion of the module is key.
 A common starting point for a "modular monolith" is some version of feature slicing. Where a feature is either a command or query. This notion of a thin slice maps to the early days of "micro frontends" where a feature slice goes from a web component to a FaaS function.
 
-[Feature slices](/assets/feature_slices.png)
+![Feature slices](/assets/feature_slices.png)
 
 Commonly these feature slices utlize a larger model, where aspects like business rules and transaction bounderies doesn't fit pure use-case slicing. The need for a other boundery starts emerging. The entry point might look familiar through commands and queries, with addition to support eventing. The module protectes a model through a boundery facade with signatures for handling commands, queries, eventing (incoming/outgoing). 
 
-[Micro frontend slice](/assets/slice_micro_frontend.png)
+![Micro frontend slice](/assets/slice_micro_frontend.png)
 
-[Slices module](/assets/feature_slices_module.png)
+![Slices module](/assets/feature_slices_module.png)
 
 With this notion of a module, being part of a monolith or a distributed system start to look the same.
 
-[Module facade](/assets/module_facade.png)
+![Module facade](/assets/module_facade.png)
 
 >*"The modular monolith’s beauty is that the software architecture looks surprisingly similar to the microservices architecture you might draw if you were so inclined."
 
