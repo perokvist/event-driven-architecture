@@ -17,6 +17,7 @@ Collection of articles and session follow-ups related to EDA.
 - Modules as bounderies
     * [Article - Modular monoliths](modules.html)
 - Unit of deployment
+    * [Article - Serverless Dapr - Container Apps](dapr_container_apps.html)
     * [Article - Orchestrated containers, meets PaaS and Serverless](azure_containers_paas.html)
 - Static Web Apps
     * [Article - Static web apps](static.html)
