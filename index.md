@@ -13,7 +13,7 @@ Collection of articles and session follow-ups related to EDA.
 
 ## Index
 
-- Azure Conatiner Apps
+- Azure Container Apps
     * [Article - Introduction](aca.html)
 - Team Topoligies
     * [Article - Team types and communication](topologies.html)
