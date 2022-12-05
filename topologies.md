@@ -14,7 +14,7 @@ I think most of us reside in some sort of “value stream” team, as a product 
 
 Hopefully all have experience from a cross-functional team with different levels of autonomy in regard to tech and business outcomes.
 
-![](https://my.1337.life/api/images/image/ea8ec121-a9e9-443b-91cf-b8504c8d7ce9/md)The **Book Team topologies** define four types of teams; “Stream aligned”, “Platform”, “Enabling” and “Complex subsystem”.
+The **Book Team topologies** define four types of teams; “Stream aligned”, “Platform”, “Enabling” and “Complex subsystem”.
 
 This makes it interesting to look at what skills/traits are more important in different kinds of teams.
 
@@ -43,7 +43,7 @@ Data is more important than ever, for a team to be able use feedback from data t
 
 But if the value stream team moved out responsibilities to be able to focus, moving data closer adds to the cognitive load. The [data mesh architecture site](https://www.datamesh-architecture.com/) provides a lot of insights and examples how this could relate to team topologies.
 
-![](https://my.1337.life/api/images/image/2c2ac1fe-e845-42d6-8bcc-455173d63e40/md)  
+![data mesh](https://my.1337.life/api/images/image/2c2ac1fe-e845-42d6-8bcc-455173d63e40/md)  
 
 ### Closing
 

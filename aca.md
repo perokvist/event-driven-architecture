@@ -46,7 +46,7 @@ https://medium.com/vx-company/secure-net-microservices-with-azure-container-apps
 ## Scaling
 Scaling is a major feature, since this introduces the serverless billing model of scaling to zero. Another is the utilization of KEDA, an autoscaler with a lot of scaling triggers as illustrated in these scenarios.
 
-[![scaling + scenarios](https://learn.microsoft.com/en-us/azure/container-apps/media/overview/azure-container-apps-example-scenarios.png)]
+![scaling + scenarios](https://learn.microsoft.com/en-us/azure/container-apps/media/overview/azure-container-apps-example-scenarios.png)
 
 ## Observability 
 **Application logging** (console output and system logs) could be streamed through the portal real time. The default storage is Azure Monitor Log analytics, where you later could query these logs. It's also possible to route these logs through Azure Monitor to other destinations.
@@ -88,7 +88,7 @@ A classic CDN might aid in caching for ACA apps, but it will be interesting how 
 #### Authentication
 Authentication and Authorization aka "Easy Auth" is also integrated with ACA. When enabling that it runs as a side car for each application.
 
-[![easy auth as side car](https://learn.microsoft.com/en-us/azure/container-apps/media/authentication/architecture.png)]
+![easy auth as side car](https://learn.microsoft.com/en-us/azure/container-apps/media/authentication/architecture.png)
 
 #### Gateways
 
