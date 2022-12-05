@@ -43,7 +43,7 @@ Data is more important than ever, for a team to be able use feedback from data t
 
 But if the value stream team moved out responsibilities to be able to focus, moving data closer adds to the cognitive load. The [data mesh architecture site](https://www.datamesh-architecture.com/) provides a lot of insights and examples how this could relate to team topologies.
 
-![data mesh](https://my.1337.life/api/images/image/2c2ac1fe-e845-42d6-8bcc-455173d63e40/md)  
+![data mesh](https://d33wubrfki0l68.cloudfront.net/9d21c3fae15fc1659479f36a7960343010194297/99387/images/datamesharchitecture.png.webp)  
 
 ### Closing
 
