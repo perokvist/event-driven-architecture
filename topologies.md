@@ -2,6 +2,8 @@
 layout: default
 ---
 
+# Team Topologies as guide rails
+
 A **value stream team** should have the ability to “deliver significant increments without waiting on another team”. It should minimize the cognitive load of the team. It's cross functional.
 
 It’s an “entity with its own learning, goals, mission and reasonable autonomy”.

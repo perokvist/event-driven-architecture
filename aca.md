@@ -2,6 +2,8 @@
 layout: default
 ---
 
+# Azure Container Apps
+
 Azure Container Apps (ACA) is one of the more interesting services in the Azure offerings. A platform service offering the benefits of open-source tech like Kubernetes, KEDA and dapr as a platform service. 
 
 ACA PaaS is built on top of AKS (Azure Kubernetes Service), targeting hosting and operating applications that consist of one or more containerized service(s).
