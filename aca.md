@@ -98,7 +98,7 @@ The [network](https://learn.microsoft.com/en-us/azure/container-apps/networking)
 
 ACA, a single platform service that caters for hosting web applications, background services, triggered functions and other processes in different stacks, but with an optional unified programming model through dapr, is a really interesting offering, challenging a lot of customer kubernetes setups out there.
 
-There is also a momentum in regards to dapr, through start-ups like [Diagrid}(https://www.diagrid.io/).
+There is also a momentum in regards to dapr, through start-ups like [Diagrid](https://www.diagrid.io/).
 
 
 
