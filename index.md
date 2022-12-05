@@ -13,7 +13,10 @@ Collection of articles and session follow-ups related to EDA.
 
 ## Index
 
-
+- Azure Conatiner Apps
+    * [Article - Introduction](aca.html)
+- Team Topoligies
+    * [Article - Team types and communication](topologies.html)
 - Modules as bounderies
     * [Article - Modular monoliths](modules.html)
 - Unit of deployment
