@@ -22,7 +22,7 @@ If in a "stream aligned" team it is preferable to keep a sensible amount of Kube
 ## Concepts 
 When using ACA, you first need an ACA environment, an environment could be used to host multiple apps. Environment could also be configured to run on a pre-existing VNET. Environment is the equivalent to a Kubernetes namespace.
 
-[![env](https://learn.microsoft.com/en-us/azure/container-apps/media/environments/azure-container-apps-environments.png)]
+![env](https://learn.microsoft.com/en-us/azure/container-apps/media/environments/azure-container-apps-environments.png)
 
 An app is most commonly one container deployed as a pod. It could be multiple containers (advanced)(as side cars or infrastructure). So an app is more in the scope of a service. When building systems/apps that consist of multiple services they are commonly deployed in the same environment, sharing vnet.
  
