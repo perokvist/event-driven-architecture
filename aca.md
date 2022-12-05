@@ -41,7 +41,7 @@ Ingress controls access to the apps internal/public. Commonly one service might 
 
 A custom gateway service could also use dapr integration for service discovery, resilience and other capabilities of darp.
 
-https://medium.com/vx-company/secure-net-microservices-with-azure-container-apps-and-dapr-e122c6ea0aac
+- [Secure net microservices with azure container apps and dapr](https://medium.com/vx-company/secure-net-microservices-with-azure-container-apps-and-dapr-e122c6ea0aac)
 
 ## Scaling
 Scaling is a major feature, since this introduces the serverless billing model of scaling to zero. Another is the utilization of KEDA, an autoscaler with a lot of scaling triggers as illustrated in these scenarios.
