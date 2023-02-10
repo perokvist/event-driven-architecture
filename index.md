@@ -13,6 +13,8 @@ Collection of articles and session follow-ups related to EDA.
 
 ## Index
 
+- Data+Architecture
+    * [Article - Bridging the gap between transaction and analytics data with events](data_architecture.html)
 - Azure Container Apps
     * [Article - Introduction](aca.html)
 - Team Topoligies
