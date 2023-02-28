@@ -5,10 +5,16 @@ layout: default
 # Wimma Case - Events
 ## *“Event utilization in the startup world”*
 
-Wimma is a startup in prop-tech, building an app to aid communication between landlords, caretakers and tenants, targeting smaller real estate companies.
+![initial model](assets/wimma_article_header.png)
+
+[Wimma](https://www.wimma.se/) is a startup in prop-tech, building an app to aid communication between landlords, caretakers and tenants, targeting smaller real estate companies.
 Wimma has a mobile app consisting of several modules like notice board and service requests.
  
 In this article we’re going to focus on the service request module, and how events are used throughout the process.
+
+![screen-1](assets/wimma_screen_en_1.png)
+![screen-2](assets/wimma_screen_en_2.png)
+![screen-3](assets/wimma_screen_en_3.png)
 
 There are many ways of using events in discovery, exploration and collaboration. Everyone understands (business) events, and their position on a timeline. An excellent opportunity to reach a shared understanding among different traits. A common practice/workshop format is eventstorming, introducing a notation, easy to use with colored post-its, where a foundation of orange stickers (events) is placed on a timeline. Eventstorming could be seen as a framework you could build upon. Event modeling is another tool that shares some of the notations.
 
@@ -38,7 +44,7 @@ When using an event centric modeling tool, there are few options on making event
 
 #### History of a request
 With all historical events on a given service request, we could easily create views with the right level of detail  for different audiences about the request process.
-###3 Time based KPIs
+### Time based KPIs
 Since all events are stored with the time they occurred, we based on the full history could calculate different time based KPIs, like average lead time between states, ex from Registered request to assigning, or from assigning to completion etc.
 #### Project different models
 Depending on state and audience the history could be projected into model(s) suiting each case. It could be as a work order with other details for employees or a Service Request catered for tenants.
